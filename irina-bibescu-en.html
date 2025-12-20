@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irina Bibescu — Keeper of the Red Breath</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Uncial+Antiqua&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4e8c1;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(150, 100, 50, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(150, 100, 50, 0.1) 0%, transparent 50%),
+                linear-gradient(45deg, rgba(200, 150, 100, 0.05) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(200, 150, 100, 0.05) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(200, 150, 100, 0.05) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(200, 150, 100, 0.05) 75%);
+            background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px, 20px 20px, 20px 20px;
+            font-family: 'Uncial Antiqua', cursive;
+            color: #4a2c0a;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .parchment {
+            max-width: 860px;
+            margin: 20px auto;
+            padding: 50px 60px;
+            background-color: #f9f1dd;
+            background-image: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/></filter></defs><rect width="100" height="100" filter="url(%23noise)" opacity="0.15"/></svg>'),
+                linear-gradient(135deg, rgba(200, 150, 100, 0.15) 0%, rgba(180, 120, 60, 0.08) 100%);
+            
+            box-shadow: 
+                inset 0 0 80px rgba(0,0,0,0.12),
+                inset 0 0 120px rgba(255,255,255,0.35),
+                0 20px 40px rgba(0,0,0,0.25),
+                0 10px 20px rgba(0,0,0,0.15);
+            
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parchment::before {
+            content: '';
+            position: absolute;
+            top: -20px; left: -20px; right: -20px; bottom: -20px;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, transparent 65%);
+            border-radius: 25px;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .parchment::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                linear-gradient(to right, transparent 48%, rgba(0,0,0,0.015) 50%, transparent 52%),
+                linear-gradient(to bottom, transparent 48%, rgba(0,0,0,0.015) 50%, transparent 52%);
+            pointer-events: none;
+            border-radius: 20px;
+        }
+        
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #6b4c2e;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+            letter-spacing: 0.12em;
+            border-bottom: 2px solid rgba(107, 76, 46, 0.3);
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2em;
+            color: #8b4513;
+            text-align: center;
+            margin: 65px 0 30px;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #d4a574, transparent);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5em;
+            color: #a0522d;
+            margin: 35px 0 15px;
+        }
+        
+        p, ul, blockquote {
+            font-size: 1.15em;
+            margin-bottom: 22px;
+            text-shadow: 0.5px 0.5px 1px rgba(255,255,255,0.6);
+        }
+        
+        blockquote {
+            font-style: italic;
+            margin: 35px 50px;
+            padding: 25px 30px;
+            background: rgba(212, 165, 116, 0.12);
+            border-left: 5px solid #d4a574;
+            border-radius: 8px;
+            color: #5c3d1a;
+            font-size: 1.25em;
+            line-height: 1.65;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        li {
+            margin-bottom: 14px;
+            padding-left: 28px;
+            position: relative;
+        }
+        
+        li::before {
+            content: '✸';
+            position: absolute;
+            left: 0;
+            color: #d4a574;
+            font-size: 1.3em;
+            top: -2px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+        
+        @media (max-width: 768px) {
+            .parchment {
+                margin: 10px;
+                padding: 30px 25px;
+                border-radius: 15px;
+            }
+            h1 { font-size: 2.2em; margin-bottom: 35px; }
+            h2 { font-size: 1.8em; margin: 50px 0 25px; }
+            blockquote { margin: 30px 20px; padding: 20px; font-size: 1.15em; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .parchment { animation: fadeIn 1.2s ease-out; }
+
+        a {
+            color: #8b0000 !important;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #b22222;
+            text-shadow: 0 0 3px rgba(178, 34, 34, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="parchment">
+        <h1>Irina Bibescu — Keeper of the Red Breath</h1>
+        
+        <div class="section">
+            <h2>Identity</h2>
+            <p><strong>Full name</strong>: Irina Stanescu-Bibescu, a shadow woven from wind and ancient fire.</p>
+            <p><strong>Born</strong>: In 1942, beneath the heavy skies of Romania, where the mountains still exhale the secrets of the wolves.</p>
+            <p><strong>Husband</strong>: Dorian Bibescu (born 1937), linguist of alchemical words, Grand Master of the <a href="pdfs/the-last-dragons.pdf" target="_blank" rel="noopener noreferrer">
+    Order of the Dragon</a>, in whose veins runs the echo of forgotten scales.</p>
+            <p><strong>Places of residence</strong>: The mist-shrouded streets of Bucharest, the whispering forests of Sibiu, then a veiled retreat in the dark folds of the Southern Carpathians, where time folds back like a wounded wing.</p>
+            <p><strong>Occult title</strong>: <em>Păstrătoarea Suflului Roșu</em> — “Keeper of the Red Breath”, she who inhales the embers of souls and returns them to the wind.</p>
+        </div>
+        
+        <div class="section">
+            <h2>The Red Breath — Essence of the Dragon</h2>
+            <p>Between 1968 and 1979, in the hushed intimacy of their manuscripts, the couple wove the veil of the <em>Suflul Roșu</em>: a vital energy that dances in the blood like a captive comet, free from the flesh that carries it.</p>
+            <p>It is the inner flame, inherited from the Dacian priests, that coiled into a dragon — a serpentine body trembling with stars, a wolf’s head with solar fangs — guardian of buried power, where the skin throbs with a voracious sun.</p>
+            <blockquote>
+                “Blood is merely the memory of light, a frozen river of past storms.<br>
+                The Red Breath is its voice, a gentle roar that courses through the veins of the world.<br>
+                Whoever learns to listen becomes an echo, and speaks to the centuries as to sleeping lovers.”
+            </blockquote>
+            <p>Not the vampirism of legendary shadows, but an energetic feast: to absorb the flows of others in order to ignite one’s own consciousness, like a candle that devours darkness to shine brighter.</p>
+            <p>In their rituals, beneath the flickering glow of candles, Irina and Dorian wove exchanges — not to consume, but to harmonise, in the eternal waltz of Gift and Hunger, where every inhalation is a pact with the invisible.</p>
+        </div>
+        
+        <div class="section">
+            <h2>The Black Waters — Matrix of Memory</h2>
+            <p>At the heart of their doctrine flows another secret river: the <a href="pdfs/Order of the Red Dragon and the Brotherhood of the Black Waters.pdf" target="_blank" rel="noopener noreferrer">Black Waters</a> of the Danube, not an abyss of darkness, but the abyssal cradle of souls, where dreams drown only to be reborn as dark pearls.</p>
+            <p>They are the collective memory, an ocean that swallows stray breaths, fleeting shadows, the whispers of the vanished, distilling them into primordial elixir.</p>
+            <p>Irina, in respiratory trance, would descend into their depths during night vigils, her body arched like a branch bent by the current, invoking the waters that drink and give back.</p>
+            <blockquote>
+                “The world above suffocates in dead light, frozen like a cry turned to ice.<br>
+                The world below breathes, black and vibrant, a pulse of damp earth beneath the skin of the sky.<br>
+                It is not hell, but the gnarled root of the gods, where the gods themselves come to drink.”
+            </blockquote>
+        </div>
+        
+        <div class="section">
+            <h2>Under Communism (1947–1989)</h2>
+            <p>To the Party, the Bibescus were merely marginal shadows, wandering intellectuals whose ideas were too fluid for the chains of dogma.</p>
+            <p>But to the initiated, they were the guardians of an aristocratic witchcraft, threading between magic and occult politics like a silver filament in the red night.</p>
+            <p>Their Bucharest apartment, bathed in a dim light like a shroud of mist, became a clandestine sanctuary: there, fever-eyed artists, sharp-tongued professors, diplomats with cracked masks gathered to invoke the “breath” and the “blood of the word”, in air thick with incense and complicit silence.</p>
+            <p>They sought neither holiness nor forgiveness — only the art of surviving oblivion, of breathing when the world suffocates.</p>
+            <blockquote>
+                “When a regime steals your name, as a wolf carries off the shadow of its prey, breathe.<br>
+                Your breath is an invisible forge; as long as it pulses, death has no hold.”
+            </blockquote>
+            <p>It was in these gilded prisons that they refined their respiratory rituals: during fiery verbal duels or whispered readings, “drinking” the vital essence of the other, a spectral exchange flirting with possession, where souls melt into shared fire.</p>
+            <blockquote>
+                “The Bibescu couple hosts nights frequented by suspicious elements. Their creed: a philosophy of blood and breath, veins throbbing with rebellion. To be closely watched. Threat of mystical deviations, like slow poison in the veins of the people.”
+            </blockquote>
+        </div>
+        
+        <div class="section">
+            <h2>Inner Exile</h2>
+            <p>1970s: the pressure rises like a black tide, forcing them to leave the fevered arteries of Bucharest for the green folds of Sibiu, where the bell towers pierce the fog like claws reaching for the sky.</p>
+            <p>There, in catacombs of stone and silence, they wove the <em>Frăția Apei Negre</em> — “The Brotherhood of the Black Water”, a circle where pagan mysticism, tattered poetry, and invocations to the “sleeping spirits of the Danube” blend into living tissue.</p>
+            <p>The disciples, hungry souls, drank from these sources: some vanished into the mists of the Securitate, snatched away like leaves by the autumn wind; others resurfaced, post-communist phoenixes, sowing invisible seeds in the newly freed soil of Romania.</p>
+            <p>The Bibescus’ legacy? An elusive murmur, a breath that slips through the fingers like river water.</p>
+        </div>
+        
+        <div class="section">
+            <h2>After 1989: The Last Dragons</h2>
+            <p>The fall of the regime in 1989 unleashes a wind of ashes and hopes; Dorian then unearths the Order of the Dragon from the ruins, draping it not in a monarchical mantle, but in the skin of ancestral energy, scales gleaming with primordial fire.</p>
+            <p>Irina curls into silence, mute guardian of the depths.</p>
+            <blockquote>
+                “The shadow has feasted on light, drop by drop; the light has drunk the shadow until drunk.<br>
+                We stand on the threshold of the final breath, where the air trembles with farewell.”
+            </blockquote>
+            <p>Around 2005, in a spectral gesture, they choose Radu Dragonescu, hunter of occult shadows, as their spiritual son, captivated by the yellowed parchments of their archives.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Radu Dragonescu — Heir of Silence</h2>
+            <p>Born in 1962 beneath the skies of France, Radu crosses their path at the twilight of the 2000s, pen and ink in hand, tracking vampires through the corners of history.</p>
+            <p>Irina names him “a calm breath amid howling winds”, an anchor in the storm.</p>
+            <p>They see in him the possible echo of their flame, a vessel to carry their secrets.</p>
+            <p>A decade of vigils: he inhales the respirations of the Red Breath, deciphers the shifting symbols of the waters, intones the songs of transfer that bind souls like entwined roots.</p>
+            <p>But as the nights pass, the weight reveals itself — a spiritual cost, a thirst that hollows the soul.</p>
+            <blockquote>
+                “They taught me to breathe the light that coils in the blood, a current of liquid gold.<br>
+                I brushed against power, its exquisite bite, and knew that this fire, once released, would consume worlds.<br>
+                It must remain sealed, a murmur in the shadows, neither revealed nor wielded.”
+            </blockquote>
+            <p>Radu carries Irina and Dorian within him like living talismans; they still haunt him, in visions, in their Carpathian lair.</p>
+            <p>Yet he breaks the lineage, terrified that this knowledge, if corrupted, might forge weapons or idols. Withdrawn to the farthest end of the world, he keeps watch, convinced that “Irina and Dorian endure, but in an altered breath, an echo that brushes us without touching us.”</p>
+        </div>
+        
+        <div class="section">
+            <h2>Ambivalence and Doctrine</h2>
+            <p>The Bibescus’ legacy defies the chains of good and evil, those false twins born of the same primal cry.</p>
+            <p>Life, for them, is an eternal dance of energies: every breath inhales and exhales, a gift that bleeds and a hunger that heals.</p>
+            <blockquote>
+                “What you give evaporates in spirals of loss,<br>
+                What you breathe takes root in you like a burning root,<br>
+                What you drink in the shadows transforms you, bones and veins mingled with the night.”
+            </blockquote>
+            <h3>Within this fluid mandala:</h3>
+            <ul>
+                <li><strong>The Red Breath</strong>, hungry pulsation, voracious heartbeat of existence that demands and offers.</li>
+                <li><strong>The Black Waters</strong>, uterine matrix, abyss where breath dissolves into bubbles of eternity, ready to rise again.</li>
+                <li><strong>The Dragon</strong>, ambivalent guardian of ambivalence — half-solar fire that cracks the heavens, half-subterranean earth that swallows bones —, mirror of humanity: sharpened spirit and insatiable appetite.</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Today</h2>
+            <p>Irina and Dorian have slipped beyond the veil of the world, perhaps dissolved into mist, perhaps coiled in a fold of time.</p>
+            <p>Yet the watchers of the river swear: at every equinox, a reddish halo splits the Danube at Ruse, like a vein opened onto infinity, and the air grows heavy with warm breath, defying the biting cold of the wind.</p>
+            <p>The elders invoke the <em>Răsuflarea Roșie</em> — the Red Breath, a low song rising from the depths.</p>
+            <p>In the velvety abyss of the waters, it whispers that the ancient dragons, colossi of oblivion and glory, have never folded their wings: spectral guardians, they still exhale, weaving a secret kingdom where wandering souls come to drink from the source of mystery.</p>
+        </div>
+    </div>
+	
+<script type="text/javascript">
+var sc_project=13182968; 
+var sc_invisible=1; 
+var sc_security="26afc329"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13182968/0/26afc329/1/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+</body>
+</html>
