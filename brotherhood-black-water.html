@@ -102,6 +102,27 @@
             color: #c9b090;
         }
         
+        /* Styles pour les liens */
+        a {
+            color: #a87c50; /* Couleur normale des liens : brun-orangé */
+            text-decoration: underline;
+            text-decoration-color: rgba(168, 124, 80, 0.4);
+            transition: color 0.3s ease, text-decoration-color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #d4a574; /* Plus clair au survol */
+            text-decoration-color: #d4a574;
+        }
+        
+        a.jaune {
+            color: #b89c6a !important; /* Jaune/or ancien pour les liens spéciaux */
+        }
+        
+        a.jaune:hover {
+            color: #e6c080 !important; /* Encore plus lumineux au survol */
+        }
+        
         @media (max-width: 768px) {
             .parchment {
                 margin: 10px;
@@ -135,7 +156,7 @@
     <div class="parchment">
         <h1>The Brotherhood of the Black Water: Living Shadows of the Carpathians</h1>
         
-        <p>In the frozen folds of the Southern Carpathians, where the wind carries the breath of the dead and ancient pines bend like mourning widows, the Brotherhood of the Black Water (<em>Frăția Apei Negre</em>) still breathes. This almost exclusively feminine sorority is no fellowship of light: it is a living tomb, a circle of women who have chosen to immerse themselves in the abyss to draw forth the memory of the vanished. Irina Bibescu, born in 1942 beneath a leaden Romanian sky, was its founder and supreme guardian—a frail silhouette with eyes too deep, whose breath seemed to come from elsewhere, as if she had already crossed the threshold and returned to haunt the living. Men are rarely admitted, and only those whose blood bears an ancient, nearly faded mark. But the Brotherhood belongs to women: reincarnated vrăjitoare, keepers of knowledge that reeks of damp earth and dried blood.</p>
+        <p>In the frozen folds of the Southern Carpathians, where the wind carries the breath of the dead and ancient pines bend like mourning widows, the Brotherhood of the Black Water (<em>Frăția Apei Negre</em>) still breathes. This almost exclusively feminine sorority is no fellowship of light: it is a living tomb, a circle of women who have chosen to immerse themselves in the abyss to draw forth the memory of the vanished. <a href="irina-bibescu.html" target="_blank" rel="noopener noreferrer" class="yellow">Irina Bibescu</a>, born in 1942 beneath a leaden Romanian sky, was its founder and supreme guardian—a frail silhouette with eyes too deep, whose breath seemed to come from elsewhere, as if she had already crossed the threshold and returned to haunt the living. Men are rarely admitted, and only those whose blood bears an ancient, nearly faded mark. But the Brotherhood belongs to women: reincarnated vrăjitoare, keepers of knowledge that reeks of damp earth and dried blood.</p>
         
         <h2>Roots in the Dacian Darkness</h2>
         
