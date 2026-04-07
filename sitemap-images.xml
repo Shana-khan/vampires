@@ -5,6 +5,13 @@
   <url>
     <loc>https://shana-khan.github.io/vampires/</loc>
     
+	<image:image>
+      <image:loc>https://shana-khan.github.io/vampires/pics/andrei-odobescu.jpg</image:loc>
+      <image:title>Andrei Odobescu</image:title>
+      <image:caption>Painted portrait of Andrei Odobescu, Grand Master of the Order of the Red Dragon</image:caption>
+      <image:alt>Grand Master of the Order of the Red Dragon</image:alt>
+    </image:image>
+	
     <image:image>
       <image:loc>https://shana-khan.github.io/vampires/pics/dorian-bibescu.avif</image:loc>
       <image:title>Dorian Bibescu</image:title>
@@ -23,6 +30,13 @@
       <image:loc>https://shana-khan.github.io/vampires/pics/radu-dragonescu.avif</image:loc>
       <image:title>Radu Dragonescu</image:title>
       <image:caption>Radu Dragonescu, spiritual heir of Dorian and Irina Bibescu</image:caption>
+      <image:alt>Master of the Order of the Red Dragon and the the Brotherhood of the Black Water</image:alt>
+    </image:image>
+	
+	<image:image>
+      <image:loc>https://shana-khan.github.io/vampires/pics/dragonescu-radu.jpg</image:loc>
+      <image:title>Radu Dragonescu</image:title>
+      <image:caption>Radu Dragonescu, spiritual heir of Dorian and Irina Bibescu in the Garmeh desert</image:caption>
       <image:alt>Master of the Order of the Red Dragon and the the Brotherhood of the Black Water</image:alt>
     </image:image>
 
