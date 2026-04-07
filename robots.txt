@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shana-khan.github.io/vampires/sitemap.xml
+Sitemap: https://shana-khan.github.io/vampires/sitemap-images.xml

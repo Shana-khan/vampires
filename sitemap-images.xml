@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://shana-khan.github.io/vampires/</loc>
+    
+    <image:image>
+      <image:loc>https://shana-khan.github.io/vampires/pics/dorian-bibescu.avif</image:loc>
+      <image:title>Dorian Bibescu</image:title>
+      <image:caption>Portrait of Dorian Bibescu, Grand Master of the Order of the Red Dragon and the Brotherhood of the Black Waters</image:caption>
+      <image:alt>Grand Master of the Order of the Red Dragon</image:alt>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://shana-khan.github.io/vampires/pics/irina-bibescu.avif</image:loc>
+      <image:title>Irina Bibescu</image:title>
+      <image:caption>High Priestess of the Brotherhood of the Black Waters</image:caption>
+      <image:alt>High Priestess of the Brotherhood of the Black Waters and the Order of the Red Dragon</image:alt>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://shana-khan.github.io/vampires/pics/radu-dragonescu.avif</image:loc>
+      <image:title>Radu Dragonescu</image:title>
+      <image:caption>Radu Dragonescu, spiritual heir of Dorian and Irina Bibescu</image:caption>
+      <image:alt>Master of the Order of the Red Dragon and the the Brotherhood of the Black Water</image:alt>
+    </image:image>
+
+  </url>
+
+</urlset>
