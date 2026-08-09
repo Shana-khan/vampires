@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171614">
+<meta name="description" content="A balanced long-form essay about extraordinary experiences, science, spirituality, skepticism, uncertainty, and the limits of what we know.">
+<title>Between Belief and Skepticism — What Do We Really Know?</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --ink:#20201e; --paper:#f8f5ef; --paper2:#eee9df; --muted:#777269;
+  --accent:#8b6240; --accent2:#c3a27e; --dark:#171614; --line:#d9d1c4;
+  --serif:"Libre Baskerville", Georgia, serif; --sans:"DM Sans", Arial, sans-serif;
+}
+* { box-sizing:border-box; scroll-behavior:smooth; }
+html { background:var(--dark); }
+body { margin:0; color:var(--ink); background:var(--paper); font-family:var(--serif); }
+.hero {
+  min-height:78vh; display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden; color:#f8f5ef; background:
+  radial-gradient(circle at 18% 20%, rgba(195,162,126,.22), transparent 28%),
+  radial-gradient(circle at 82% 72%, rgba(139,98,64,.18), transparent 32%),
+  linear-gradient(135deg,#11100f,#292521 58%,#171614);
+  padding:90px 24px;
+}
+.hero:after {
+  content:""; position:absolute; inset:22px; border:1px solid rgba(248,245,239,.18);
+  pointer-events:none;
+}
+.hero-inner { max-width:980px; text-align:center; position:relative; z-index:1; }
+.kicker { font-family:var(--sans); text-transform:uppercase; letter-spacing:.28em; font-size:.75rem; color:#d5b998; }
+.hero h1 { font-size:clamp(3.2rem,8vw,7.5rem); line-height:.92; letter-spacing:-.055em; margin:28px 0; font-weight:700; }
+.hero .dek { max-width:780px; margin:0 auto; font-size:clamp(1.05rem,2vw,1.45rem); line-height:1.7; color:#ddd6cc; font-style:italic; }
+.hero-meta { margin-top:34px; font:500 .78rem var(--sans); letter-spacing:.12em; text-transform:uppercase; color:#aaa39a; }
+
+.layout { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:220px minmax(0,820px); gap:80px; padding:80px 40px 120px; }
+.toc { position:sticky; top:32px; align-self:start; font:500 .76rem/1.45 var(--sans); }
+.toc-title { text-transform:uppercase; letter-spacing:.18em; color:var(--accent); margin-bottom:18px; }
+.toc ol { list-style:none; padding:0; margin:0; }
+.toc li { border-top:1px solid var(--line); }
+.toc a { display:flex; gap:10px; padding:10px 0; color:var(--muted); text-decoration:none; }
+.toc a:hover { color:var(--ink); }
+.toc a span { color:var(--accent); min-width:20px; }
+
+article { min-width:0; }
+.intro {
+  font-size:1.28rem; line-height:1.9; margin:0 0 45px; color:#3c3934;
+}
+article p { font-size:1.05rem; line-height:1.95; margin:0 0 1.25em; }
+article > p:first-of-type:first-letter {
+  float:left; font-size:5.5rem; line-height:.76; padding:.08em .10em 0 0;
+  color:var(--accent); font-weight:700;
+}
+h2 {
+  position:relative; margin:78px 0 25px; padding-top:22px;
+  font-size:2rem; line-height:1.25; letter-spacing:-.025em;
+}
+h2:before {
+  content:""; position:absolute; top:0; left:0; width:48px; height:3px; background:var(--accent);
+}
+.section-no {
+  display:block; margin-bottom:8px; color:var(--accent); font:600 .7rem var(--sans); letter-spacing:.15em;
+}
+blockquote {
+  margin:48px 0; padding:28px 36px; border-left:3px solid var(--accent);
+  background:var(--paper2); font-size:1.45rem; line-height:1.65; font-style:italic; color:#4a433c;
+}
+blockquote strong { font-style:normal; }
+.callout {
+  margin:55px 0; padding:34px; background:var(--dark); color:#f5f0e8;
+}
+.callout .label { font:600 .7rem var(--sans); text-transform:uppercase; letter-spacing:.2em; color:#c3a27e; }
+.callout p { margin:12px 0 0; font-size:1.25rem; }
+.divider { border:0; border-top:1px solid var(--line); margin:70px 0; }
+footer {
+  background:var(--dark); color:#eee8df; padding:70px 24px; text-align:center;
+  font-family:var(--serif);
+}
+footer p { max-width:760px; margin:0 auto; font-size:1.45rem; line-height:1.7; }
+footer small { display:block; margin-top:30px; color:#9f988f; font:400 .72rem var(--sans); letter-spacing:.12em; text-transform:uppercase; }
+
+@media(max-width:900px) {
+  .layout { grid-template-columns:1fr; gap:30px; padding:55px 24px 90px; }
+  .toc { position:relative; top:auto; }
+  .toc ol { display:grid; grid-template-columns:1fr 1fr; gap:0 18px; }
+  .hero { min-height:68vh; }
+}
+@media(max-width:600px) {
+  .hero { padding:70px 20px; }
+  .hero:after { inset:12px; }
+  .hero h1 { font-size:3.25rem; }
+  .layout { padding-left:20px; padding-right:20px; }
+  .toc ol { grid-template-columns:1fr; }
+  h2 { font-size:1.75rem; }
+  article p { font-size:1rem; }
+  blockquote { padding:22px; margin-left:0; margin-right:0; font-size:1.25rem; }
+}
+@media print {
+  html, body { background:white; }
+  .hero { min-height:auto; color:#111; background:white; border-bottom:1px solid #aaa; }
+  .hero:after, .toc { display:none; }
+  .hero .dek { color:#444; }
+  .layout { display:block; padding:20px; }
+  article { max-width:760px; margin:auto; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Long-form essay · Science · Consciousness · Spirituality</div>
+    <h1>Between Belief<br>&amp; Skepticism</h1>
+    <p class="dek">What do we really know about extraordinary experiences? Perhaps less than some claim — but certainly more than many assume.</p>
+    <div class="hero-meta">An essay about evidence, uncertainty, perception and the right to mystery</div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-title">Contents</div>
+    <ol><li><a href="#an-experience-can-be-completely-real-without-its-interpretation-being-correct"><span>01</span>An experience can be completely real without its interpretation being correct</a></li>
+<li><a href="#when-the-brain-gives-shape-to-the-unknown"><span>02</span>When the brain gives shape to the unknown</a></li>
+<li><a href="#the-brain-can-also-disrupt-our-sense-of-self"><span>03</span>The brain can also disrupt our sense of “self”</a></li>
+<li><a href="#the-fascinating-case-of-sleep-paralysis"><span>04</span>The fascinating case of sleep paralysis</a></li>
+<li><a href="#when-culture-gives-a-name-to-an-experience"><span>05</span>When culture gives a name to an experience</a></li>
+<li><a href="#the-trap-of-suggestion"><span>06</span>The trap of suggestion</a></li>
+<li><a href="#the-group-effect"><span>07</span>The group effect</a></li>
+<li><a href="#breathing-when-physiology-looks-like-mysticism"><span>08</span>Breathing: when physiology looks like mysticism</a></li>
+<li><a href="#sleep-deprivation-a-doorway-to-unusual-experiences"><span>09</span>Sleep deprivation: a doorway to unusual experiences</a></li>
+<li><a href="#but-we-must-be-careful-not-to-turn-science-into-a-new-religion"><span>10</span>But we must be careful not to turn science into a new religion</a></li>
+<li><a href="#unexplained-unlikely-and-impossible-do-not-mean-the-same-thing"><span>11</span>“Unexplained,” “unlikely,” and “impossible” do not mean the same thing</a></li>
+<li><a href="#the-familiar-claim-science-can-t-explain-it"><span>12</span>The familiar claim: “Science can&#x27;t explain it”</a></li>
+<li><a href="#but-the-reverse-error-also-exists"><span>13</span>But the reverse error also exists</a></li>
+<li><a href="#mystical-experiences-between-psychology-and-mystery"><span>14</span>Mystical experiences: between psychology and mystery</a></li>
+<li><a href="#the-problem-of-consciousness"><span>15</span>The problem of consciousness</a></li>
+<li><a href="#the-particular-case-of-near-death-experiences"><span>16</span>The particular case of near-death experiences</a></li>
+<li><a href="#the-problem-with-testimony"><span>17</span>The problem with testimony</a></li>
+<li><a href="#what-if-several-people-report-the-same-thing"><span>18</span>What if several people report the same thing?</a></li>
+<li><a href="#the-hardest-criterion-reproducibility"><span>19</span>The hardest criterion: reproducibility</a></li>
+<li><a href="#can-science-and-spirituality-coexist"><span>20</span>Can science and spirituality coexist?</a></li>
+<li><a href="#the-hardest-position-i-don-t-know"><span>21</span>The hardest position: “I don&#x27;t know”</a></li>
+<li><a href="#the-real-enemy-may-be-neither-belief-nor-skepticism"><span>22</span>The real enemy may be neither belief nor skepticism</a></li>
+<li><a href="#we-need-to-learn-to-live-with-different-levels-of-certainty"><span>23</span>We need to learn to live with different levels of certainty</a></li>
+<li><a href="#do-not-ridicule-human-experience"><span>24</span>Do not ridicule human experience</a></li>
+<li><a href="#and-conversely-do-not-turn-doubt-into-certainty"><span>25</span>And, conversely, do not turn doubt into certainty</a></li>
+<li><a href="#the-boundary-between-exploration-and-danger"><span>26</span>The boundary between exploration and danger</a></li>
+<li><a href="#so-what-can-we-actually-say"><span>27</span>So, what can we actually say?</a></li>
+<li><a href="#the-right-to-mystery"><span>28</span>The right to mystery</a></li></ol>
+  </nav>
+
+  <article>
+    <p class="intro"><strong>Mystical experiences, invisible presences, out-of-body experiences, synchronicities, troubling intuitions…</strong> Should we believe everything because certain experiences are deeply felt? Or reject everything because science does not confirm it? Between credulity and absolute skepticism, there is a third path: take the experience seriously without claiming to know its origin too quickly.</p>
+
+    
+
+
+<p>There is a curious paradox in the way we talk about extraordinary phenomena.</p>
+<p>When someone says they felt a presence while alone, some people immediately answer:</p>
+<blockquote>“It was a spirit.”</blockquote>
+<p>Others answer:</p>
+<blockquote>“You hallucinated.”</blockquote>
+<p>In the first case, the unknown becomes a certainty.</p>
+<p>In the second, uncertainty also becomes a certainty.</p>
+<p>And yet, in both situations, the same thing is often missing: <strong>evidence sufficient to reach a conclusion.</strong></p>
+<p>This difficulty concerns a huge variety of human experiences: sensations of presence, inexplicable intuitions, particularly striking dreams, out-of-body experiences, impressions of communicating with someone who has died, mystical states, synchronicities, déjà vu, unusual perceptions during meditation, and experiences occurring around the boundaries of sleep.</p>
+<p>Some have relatively well-supported scientific explanations.</p>
+<p>Others are probably multifactorial.</p>
+<p>Some remain difficult to explain in their entirety.</p>
+<p>And a few are still poorly understood enough that research continues to investigate them.</p>
+<p>The real challenge, therefore, is to avoid two symmetrical traps:</p>
+<p><strong>believing too quickly and rejecting too quickly.</strong></p>
+
+<h2 id="an-experience-can-be-completely-real-without-its-interpretation-being-correct"><span class="section-no">01</span>An experience can be completely real without its interpretation being correct</h2>
+<p>Let us begin with a fundamental distinction.</p>
+<p>When someone says:</p>
+<blockquote>“I felt someone behind me even though I was alone.”</blockquote>
+<p>it would be absurd to simply answer:</p>
+<blockquote>“No, you didn't feel anything.”</blockquote>
+<p>The person really did have an experience.</p>
+<p>They may have felt a presence with extraordinary intensity.</p>
+<p>They may even have been able to describe precisely where that presence seemed to be.</p>
+<p>The subjective experience is real.</p>
+<p>But a second question must be asked:</p>
+<p><strong>What caused that experience?</strong></p>
+<p>This is where things become much more complicated.</p>
+<p>The brain does not work like a camera passively recording external reality.</p>
+<p>It continuously constructs a representation of the world from available sensory information, memory, expectations, context, and physiological state.</p>
+<p>This means that a perception can be sincere, precise, and deeply convincing while still resulting from an incomplete or mistaken interpretation.</p>
+<p>This property of the brain is not a flaw. It is essential to how we function.</p>
+<p>But it also means that <strong>subjective certainty is not always proportional to objective certainty.</strong></p>
+
+<h2 id="when-the-brain-gives-shape-to-the-unknown"><span class="section-no">02</span>When the brain gives shape to the unknown</h2>
+<p>We have all seen a silhouette in the dark and then discovered that it was a piece of clothing on a chair.</p>
+<p>We have all thought we heard our name in background noise.</p>
+<p>We have all thought we recognized someone in a crowd before realizing we were mistaken.</p>
+<p>In these situations, the brain does something remarkably efficient: it rapidly searches for a plausible interpretation from incomplete information.</p>
+<p>Most of the time, this works.</p>
+<p>But this mechanism can also produce much more impressive experiences.</p>
+<p>Under certain circumstances, a person can feel a presence without identifying a corresponding external stimulus.</p>
+<p>This “sense of presence” is sufficiently common and interesting to have been studied in psychology, neurology, and cognitive science.</p>
+<p>It can occur in different contexts: disturbed sleep, stress, solitude, fatigue, certain neurological conditions, certain meditative experiences, and some extreme situations.</p>
+<p>This obviously does not mean that every sense of presence has the same origin.</p>
+<p>But it demonstrates something important:</p>
+<p><strong>the feeling that a presence is nearby can be generated by our own perceptual system.</strong></p>
+<p>And that alone is enough to challenge the idea that a sensation of presence automatically constitutes proof of an entity being present.</p>
+
+<h2 id="the-brain-can-also-disrupt-our-sense-of-self"><span class="section-no">03</span>The brain can also disrupt our sense of “self”</h2>
+<p>Even more unsettling are so-called out-of-body experiences.</p>
+<p>Some people report feeling that they are floating above themselves, observing their body from another viewpoint, or temporarily separated from their physical body.</p>
+<p>These experiences can be extraordinarily precise.</p>
+<p>They should not be caricatured as simple “hallucinations.”</p>
+<p>They are subjective phenomena that have been scientifically studied.</p>
+<p>Research into bodily perception has shown that the feeling of being located “here,” inside one's own body, depends on a complex integration of visual, tactile, vestibular, and proprioceptive signals.</p>
+<p>Disrupting this integration can alter our sense of where the self is located.</p>
+<p>Some laboratory experiments have even created artificial illusions in which participants temporarily felt that their body was located somewhere else.</p>
+<p>This provides a fascinating line of investigation.</p>
+<p>But we must avoid the opposite mistake:</p>
+<p><strong>showing that a mechanism can produce an out-of-body experience does not mean that every reported out-of-body experience has been explained.</strong></p>
+<p>It is a mechanistic hypothesis.</p>
+<p>Not a universal explanation.</p>
+
+<h2 id="the-fascinating-case-of-sleep-paralysis"><span class="section-no">04</span>The fascinating case of sleep paralysis</h2>
+<p>Sleep paralysis is probably one of the best examples of a phenomenon located at the boundary between neurology, psychology, and mystical experience.</p>
+<p>A person wakes up.</p>
+<p>They are conscious.</p>
+<p>But they cannot move.</p>
+<p>Sometimes they perceive something in the room.</p>
+<p>A silhouette.</p>
+<p>A person.</p>
+<p>A creature.</p>
+<p>A presence.</p>
+<p>They may also feel pressure on their chest, hear sounds, or feel that an entity is right beside the bed.</p>
+<p>In some cultures, these experiences have been interpreted as attacks by demons, visits from spirits, or supernatural events.</p>
+<p>Sleep research now provides mechanisms that can explain an important part of them.</p>
+<p>But that does not make the experience any less frightening.</p>
+<p>It is a good example of the distinction we are looking for:</p>
+<p><strong>the experience is real; the cultural interpretation may vary.</strong></p>
+<p>The person did not necessarily “make it up.”</p>
+<p>They experienced an authentic neurological and perceptual phenomenon.</p>
+<p>What they conclude from it then depends on their cultural framework and beliefs.</p>
+
+<h2 id="when-culture-gives-a-name-to-an-experience"><span class="section-no">05</span>When culture gives a name to an experience</h2>
+<p>This is particularly important.</p>
+<p>The same subjective experience can receive radically different interpretations depending on time and culture.</p>
+<p>A deeply religious person may speak of an angel.</p>
+<p>Another person may speak of a spirit.</p>
+<p>A third may speak of an entity.</p>
+<p>A fourth may speak of astral projection.</p>
+<p>A fifth may speak of a hallucination.</p>
+<p>It is possible that the underlying experience shares certain characteristics.</p>
+<p>But our brains naturally seek to <strong>give a name to what they do not understand.</strong></p>
+<p>Culture supplies the available categories.</p>
+<p>This does not prove that all spiritual experiences are culturally manufactured.</p>
+<p>But it shows that the interpretation of an experience is never completely independent of the context in which it occurs.</p>
+
+<h2 id="the-trap-of-suggestion"><span class="section-no">06</span>The trap of suggestion</h2>
+<p>Another particularly powerful factor is expectation.</p>
+<p>When a person practices a technique knowing that it is supposed to produce a particular sensation, they naturally pay more attention to the relevant signals.</p>
+<p>If they are told:</p>
+<blockquote>“You may feel warmth in your hands.”</blockquote>
+<p>they will monitor their hands.</p>
+<p>They may notice a slight change in temperature.</p>
+<p>A heartbeat.</p>
+<p>A muscle contraction.</p>
+<p>Tingling.</p>
+<p>A sensation that would normally have been ignored becomes central.</p>
+<p>This does not imply deception.</p>
+<p>The person may genuinely feel something they probably would not have noticed in another context.</p>
+<p>That is precisely what makes suggestion so interesting.</p>
+<p>It does not necessarily manufacture an experience from nothing.</p>
+<p>It can <strong>change the attention given to certain sensations and give them new significance.</strong></p>
+
+<h2 id="the-group-effect"><span class="section-no">07</span>The group effect</h2>
+<p>Collective dynamics add another layer.</p>
+<p>Imagine ten people taking part in a ritual.</p>
+<p>One person describes a feeling of warmth.</p>
+<p>Another talks about a vibration.</p>
+<p>A third says they saw a light.</p>
+<p>The others now know what they might be expected to look for.</p>
+<p>A loop can develop:</p>
+<p><strong>expectation → attention → sensation → interpretation → social confirmation.</strong></p>
+<p>The sensation then seems more credible because it is shared.</p>
+<p>But the fact that several people experience something similar does not automatically determine its origin.</p>
+<p>All participants were exposed to the same environment.</p>
+<p>They heard the same instructions.</p>
+<p>They shared the same expectations.</p>
+<p>They influenced one another.</p>
+<p>It is therefore entirely possible for an experience to be collective without its cause being external to the group.</p>
+<p>But again, we should avoid the opposite excess.</p>
+<p>Saying that group dynamics <strong>can</strong> produce a shared experience does not mean that <strong>every</strong> collective experience is necessarily explained by them.</p>
+<p>The right question remains:</p>
+<p><strong>What evidence is available in this particular case?</strong></p>
+
+<h2 id="breathing-when-physiology-looks-like-mysticism"><span class="section-no">08</span>Breathing: when physiology looks like mysticism</h2>
+<p>Some spiritual practices use particularly intense breathing exercises.</p>
+<p>They can produce striking sensations.</p>
+<p>Dizziness.</p>
+<p>Tingling.</p>
+<p>A feeling of lightness.</p>
+<p>Changes in body perception.</p>
+<p>Visual disturbances.</p>
+<p>A sense of detachment.</p>
+<p>A feeling of warmth or cold.</p>
+<p>In some cases, these phenomena can be related to physiological changes caused by excessive breathing.</p>
+<p>A person unfamiliar with these mechanisms may naturally look for an explanation within their belief system.</p>
+<p>This creates an interesting situation:</p>
+<p><strong>the physical phenomenon is real; its interpretation may be questionable.</strong></p>
+<p>And this is precisely where scientific knowledge is useful.</p>
+<p>It does not necessarily say:</p>
+<blockquote>“Your experience means nothing.”</blockquote>
+<p>It allows us to say:</p>
+<blockquote>“Here is at least part of what may have happened in your body.”</blockquote>
+
+<h2 id="sleep-deprivation-a-doorway-to-unusual-experiences"><span class="section-no">09</span>Sleep deprivation: a doorway to unusual experiences</h2>
+<p>Sleep deprivation deserves particular attention.</p>
+<p>Sleep is essential to normal brain function.</p>
+<p>When sleep loss becomes significant, attention, memory, emotional regulation, and perception can be disrupted.</p>
+<p>In extreme situations, unusual perceptual phenomena can appear.</p>
+<p>This creates a particular problem in some spiritual practices based on prolonged wakefulness.</p>
+<p>A person may believe they have reached a higher state of consciousness when some of their perceptual changes are, at least in part, the result of exhaustion.</p>
+<p>This does not mean that every experience obtained through wakefulness is illusory.</p>
+<p>It means that <strong>the physiological context must be taken into account before drawing metaphysical conclusions.</strong></p>
+
+<h2 id="but-we-must-be-careful-not-to-turn-science-into-a-new-religion"><span class="section-no">10</span>But we must be careful not to turn science into a new religion</h2>
+<p>This is where skepticism itself must be examined.</p>
+<p>Once people know that the brain can produce unusual experiences, there is a temptation to explain every extraordinary experience psychologically or neurologically as soon as a plausible hypothesis is available.</p>
+<p>Sometimes that is reasonable.</p>
+<p>But it is not always sufficient.</p>
+<p>A plausible hypothesis is not necessarily a demonstrated explanation.</p>
+<p>Saying:</p>
+<blockquote>“The brain can produce this kind of experience”</blockquote>
+<p>does not mean:</p>
+<blockquote>“We know that the brain caused this particular experience.”</blockquote>
+<p>The distinction is essential.</p>
+<p>Science works with degrees of confidence, hypotheses, models, reproducible observations, and sometimes contradictory data.</p>
+<p>It should not be used as a collection of ready-made answers.</p>
+
+<h2 id="unexplained-unlikely-and-impossible-do-not-mean-the-same-thing"><span class="section-no">11</span>“Unexplained,” “unlikely,” and “impossible” do not mean the same thing</h2>
+<p>This distinction is fundamental.</p>
+<p><strong>Unexplained</strong> means:</p>
+<blockquote>We do not yet know enough about the phenomenon to determine its cause.</blockquote>
+<p><strong>Unlikely</strong> means:</p>
+<blockquote>The available evidence makes a hypothesis less probable.</blockquote>
+<p><strong>Impossible</strong> means:</p>
+<blockquote>We have sufficiently strong reasons to rule the hypothesis out.</blockquote>
+<p>These three levels are very different.</p>
+<p>Yet they are often confused in discussions about paranormal phenomena.</p>
+<p>A phenomenon can be unexplained without being paranormal.</p>
+<p>A hypothesis can be unlikely without being impossible.</p>
+<p>And an extraordinary hypothesis can be imaginable without being scientifically credible.</p>
+<p>This gradation helps us move beyond the binary debate.</p>
+
+<h2 id="the-familiar-claim-science-can-t-explain-it"><span class="section-no">12</span>The familiar claim: “Science can't explain it”</h2>
+<p>This phrase is often used as an argument in favor of a supernatural explanation.</p>
+<p>But it means only one thing:</p>
+<p><strong>science does not yet have a satisfactory explanation.</strong></p>
+<p>It does not tell us why.</p>
+<p>There is an enormous difference between:</p>
+<blockquote>“Science has not explained this phenomenon.”</blockquote>
+<p>and:</p>
+<blockquote>“This phenomenon cannot be explained scientifically.”</blockquote>
+<p>The first statement may be perfectly reasonable.</p>
+<p>The second requires much more evidence.</p>
+<p>And above all, we must avoid a classic logical error:</p>
+<blockquote>“We do not know the cause. Therefore the cause is X.”</blockquote>
+<p>That reasoning could be used for almost anything.</p>
+<p>If I do not know why a light came on in an empty house, I can imagine a ghost.</p>
+<p>But I can also imagine an electrical fault.</p>
+<p>The absence of information does not allow us to choose arbitrarily between hypotheses.</p>
+
+<h2 id="but-the-reverse-error-also-exists"><span class="section-no">13</span>But the reverse error also exists</h2>
+<p>It would be equally wrong to say:</p>
+<blockquote>“Science already explains some similar phenomena, therefore all the testimonies are false.”</blockquote>
+<p>That is an abusive generalization.</p>
+<p>A person may report a phenomenon that we do not yet know how to explain completely.</p>
+<p>We must then examine the account.</p>
+<p>Look at the circumstances in which it occurred.</p>
+<p>Compare it with known phenomena.</p>
+<p>Look for possible biases.</p>
+<p>Examine competing hypotheses.</p>
+<p>And accept, if necessary:</p>
+<p><strong>“We don't know.”</strong></p>
+<p>The answer may be frustrating.</p>
+<p>But it is intellectually healthy.</p>
+
+<h2 id="mystical-experiences-between-psychology-and-mystery"><span class="section-no">14</span>Mystical experiences: between psychology and mystery</h2>
+<p>Mystical experiences are particularly interesting.</p>
+<p>Some people describe a sense of unity with the universe, dissolution of the self, a feeling of absolute love, a transcendent presence, or the disappearance of the distinction between self and environment.</p>
+<p>These experiences can have lasting effects on how people view their lives.</p>
+<p>Scientific research can study aspects of them: changes in attention, the sense of self, emotions, brain activity, perception of time, and more.</p>
+<p>But reducing the whole experience to:</p>
+<blockquote>“It's just a hallucination”</blockquote>
+<p>would be reductive.</p>
+<p>A mystical experience can be studied psychologically without requiring us to immediately decide whether it does or does not have a metaphysical dimension.</p>
+<p>This distinction matters.</p>
+<p>Science can study <strong>the mechanisms associated with an experience</strong> without necessarily answering every philosophical question raised by the experience.</p>
+
+<h2 id="the-problem-of-consciousness"><span class="section-no">15</span>The problem of consciousness</h2>
+<p>And here we encounter perhaps the deepest limit.</p>
+<p>We know a great deal about the brain.</p>
+<p>We know that brain injuries can alter personality.</p>
+<p>We know that certain substances alter perception.</p>
+<p>We know that particular brain regions and networks are associated with different aspects of consciousness.</p>
+<p>We know that sleep, anesthesia, meditation, and many other conditions alter subjective experience.</p>
+<p>But we do not yet possess a complete explanation of why a particular brain activity is accompanied by a <strong>subjective experience</strong>.</p>
+<p>Why does a color feel like a color?</p>
+<p>Why does pain feel like pain?</p>
+<p>Why is there a sense of being “me”?</p>
+<p>Why is there something it is like to be conscious?</p>
+<p>These questions remain a vast field of scientific and philosophical research and debate.</p>
+<p>This does not constitute evidence for a soul independent of the brain.</p>
+<p>But it does mean that claiming “science has already understood everything about consciousness” would be equally excessive.</p>
+
+<h2 id="the-particular-case-of-near-death-experiences"><span class="section-no">16</span>The particular case of near-death experiences</h2>
+<p>Near-death experiences are probably one of the most sensitive areas of discussion.</p>
+<p>Some people who have been close to death report an intense light, a feeling of peace, encounters with deceased relatives, seeing their own body, or a sense of leaving it.</p>
+<p>These accounts are often profoundly moving.</p>
+<p>Researchers have studied such experiences for decades.</p>
+<p>Several hypotheses have been proposed: changes in brain activity, effects of hypoxia, neurotransmitters, memory, reconstruction of the narrative after the event, mechanisms associated with REM sleep, and other neurophysiological processes.</p>
+<p>But no single model necessarily explains the full diversity of reported experiences.</p>
+<p>This is an excellent example of a field where a reasonable position is:</p>
+<p><strong>we have several hypotheses; some are well supported; none yet answers every question.</strong></p>
+<p>This does not prove survival of consciousness after death.</p>
+<p>But neither does it make further research unnecessary.</p>
+
+<h2 id="the-problem-with-testimony"><span class="section-no">17</span>The problem with testimony</h2>
+<p>Human testimony is valuable.</p>
+<p>But it has well-known limitations.</p>
+<p>Memory is not a video recording.</p>
+<p>It is reconstructed.</p>
+<p>It can be influenced by information received after the event, expectations, emotions, and conversations with other people.</p>
+<p>This does not mean witnesses are lying.</p>
+<p>That distinction is important.</p>
+<p>A person can be completely sincere and still be mistaken about certain details.</p>
+<p>This applies to everyone, including scientists, journalists, police officers, and witnesses to an accident.</p>
+<p>Sincerity does not guarantee accuracy.</p>
+<p>But uncertainty in a testimony does not mean it should be ignored either.</p>
+<p>It simply means that it should be given the weight appropriate to its nature.</p>
+
+<h2 id="what-if-several-people-report-the-same-thing"><span class="section-no">18</span>What if several people report the same thing?</h2>
+<p>That is obviously more interesting.</p>
+<p>Several people reporting similar experiences can provide an important clue.</p>
+<p>But the conditions still need to be examined.</p>
+<p>Were they influenced by one another?</p>
+<p>Did they receive the same information before the experience?</p>
+<p>Did the story evolve after repeated discussions?</p>
+<p>Were the descriptions actually identical, or merely similar?</p>
+<p>Is there an objective and verifiable feature that distinguishes the experience from its interpretation?</p>
+<p>The more independent data we have, the better.</p>
+<p>The number of witnesses can strengthen an observation.</p>
+<p>It does not automatically turn a hypothesis into certainty.</p>
+
+<h2 id="the-hardest-criterion-reproducibility"><span class="section-no">19</span>The hardest criterion: reproducibility</h2>
+<p>Science values reproducible experiments.</p>
+<p>If a phenomenon can be produced under controlled conditions, observed by different researchers, and measured independently, we can begin to understand its mechanism.</p>
+<p>Subjective experiences are particularly difficult in this respect.</p>
+<p>We cannot always ask someone:</p>
+<blockquote>“Now have exactly the same experience again.”</blockquote>
+<p>Consciousness is not a simple object that can be placed on a laboratory table.</p>
+<p>That does not make it impossible to study.</p>
+<p>But it makes the methodology much more difficult.</p>
+<p>We should therefore avoid another mistake:</p>
+<blockquote>“It is not easily reproducible, therefore it does not exist.”</blockquote>
+<p>Some human experiences are real without being easy to reproduce experimentally.</p>
+<p>The difficulty of measurement is a methodological problem, not proof of nonexistence.</p>
+
+<h2 id="can-science-and-spirituality-coexist"><span class="section-no">20</span>Can science and spirituality coexist?</h2>
+<p>That obviously depends on what we mean by “spirituality.”</p>
+<p>If it means a personal way of reflecting on existence, death, consciousness, nature, or the meaning of life, it is not necessarily an adversary of science.</p>
+<p>Science seeks to describe and understand observable phenomena.</p>
+<p>Spirituality may seek to give meaning to existence.</p>
+<p>The two can sometimes meet.</p>
+<p>Conflict begins when one attempts to answer questions belonging to the other without having the appropriate tools.</p>
+<p>When a spiritual claim becomes a claim about how the physical world works, it becomes something that can be confronted with scientific evidence.</p>
+<p>Conversely, when a question concerns the personal meaning of an experience, a biological measurement may not exhaust the question.</p>
+
+<h2 id="the-hardest-position-i-don-t-know"><span class="section-no">21</span>The hardest position: “I don't know”</h2>
+<p>There is a third position between belief and rejection.</p>
+<p>It is less spectacular.</p>
+<p>It rarely produces viral videos.</p>
+<p>It does not always sell books.</p>
+<p>It does not provide a definitive answer.</p>
+<p>But it has one essential quality:</p>
+<p><strong>it can change when the evidence changes.</strong></p>
+<p>This position says:</p>
+<blockquote>“Here is what we know.”</blockquote>
+<blockquote>“Here is what we think we know.”</blockquote>
+<blockquote>“Here is what we do not know.”</blockquote>
+<blockquote>“Here are the possible hypotheses.”</blockquote>
+<blockquote>“Here is the evidence that could distinguish between them.”</blockquote>
+<p>And sometimes:</p>
+<blockquote><strong>“For now, we cannot conclude.”</strong></blockquote>
+<p>That is not weakness.</p>
+<p>It is a method.</p>
+
+<h2 id="the-real-enemy-may-be-neither-belief-nor-skepticism"><span class="section-no">22</span>The real enemy may be neither belief nor skepticism</h2>
+<p>The real problem appears when the conclusion is chosen <strong>before</strong> the facts are examined.</p>
+<p>The believer who claims that every mysterious phenomenon confirms their beliefs is no longer really exploring.</p>
+<p>The skeptic who claims that every mysterious phenomenon must be an illusion is no longer really following a scientific approach.</p>
+<p>In both cases, the result has been decided in advance.</p>
+<p>The only difference is the conclusion.</p>
+<p>One says:</p>
+<blockquote>“It is supernatural.”</blockquote>
+<p>The other:</p>
+<blockquote>“It is necessarily natural.”</blockquote>
+<p>A genuinely open approach begins differently:</p>
+<blockquote><strong>“Let's find out what happened.”</strong></blockquote>
+
+<h2 id="we-need-to-learn-to-live-with-different-levels-of-certainty"><span class="section-no">23</span>We need to learn to live with different levels of certainty</h2>
+<p>We sometimes have an overly binary view of knowledge.</p>
+<p>A claim is not necessarily simply true or false.</p>
+<p>It may be:</p>
+<p><strong>well established;</strong></p>
+<p><strong>highly probable;</strong></p>
+<p><strong>plausible;</strong></p>
+<p><strong>possible but insufficiently supported;</strong></p>
+<p><strong>highly speculative;</strong></p>
+<p><strong>or incompatible with current knowledge.</strong></p>
+<p>This graduated way of thinking is particularly useful when dealing with extraordinary phenomena.</p>
+<p>It allows us to say:</p>
+<blockquote>“This is currently the most plausible explanation.”</blockquote>
+<p>without claiming:</p>
+<blockquote>“We have proved that it is absolutely true.”</blockquote>
+<p>And it allows us to say:</p>
+<blockquote>“This experience remains unexplained.”</blockquote>
+<p>without concluding:</p>
+<blockquote>“Therefore it is supernatural.”</blockquote>
+
+<h2 id="do-not-ridicule-human-experience"><span class="section-no">24</span>Do not ridicule human experience</h2>
+<p>There is also a deeply human dimension to this debate.</p>
+<p>When someone describes an experience that has changed their life and is told:</p>
+<blockquote>“It was just in your head.”</blockquote>
+<p>they may hear:</p>
+<blockquote>“What you experienced has no value.”</blockquote>
+<p>That may not be what the speaker intended.</p>
+<p>But it can be how the message is received.</p>
+<p>A more respectful response would be:</p>
+<blockquote>“I understand that this experience was deeply real and important to you. I am simply not sure that we can yet determine exactly what caused it.”</blockquote>
+<p>This formulation does not automatically validate a supernatural explanation.</p>
+<p>Nor does it deny the experience.</p>
+<p>It simply acknowledges a limit of knowledge.</p>
+
+<h2 id="and-conversely-do-not-turn-doubt-into-certainty"><span class="section-no">25</span>And, conversely, do not turn doubt into certainty</h2>
+<p>Respect has to work both ways.</p>
+<p>A skeptic is not necessarily closed-minded because they ask for evidence.</p>
+<p>And a spiritual person is not necessarily gullible because they attach deep meaning to an experience.</p>
+<p>The problem arises when either side stops accepting the possibility of being wrong.</p>
+<p>One can believe deeply and remain cautious.</p>
+<p>One can be highly skeptical and remain curious.</p>
+<p>One can have an extraordinary experience without knowing exactly what it means.</p>
+<p>And one can change one's mind.</p>
+<p>That last possibility may be the one most often missing from passionate debates.</p>
+
+<h2 id="the-boundary-between-exploration-and-danger"><span class="section-no">26</span>The boundary between exploration and danger</h2>
+<p>There is finally a much more practical question.</p>
+<p>Even if we do not settle the metaphysical origin of an experience, certain practices can involve very real risks.</p>
+<p>Severe sleep deprivation.</p>
+<p>Excessive hyperventilation.</p>
+<p>Prolonged fasting.</p>
+<p>Isolation.</p>
+<p>Substance use.</p>
+<p>Practices involving injury.</p>
+<p>Stopping medical treatment.</p>
+<p>Dependence on a group or leader.</p>
+<p>Psychological pressure.</p>
+<p>These dangers do not need to be supernatural to be serious.</p>
+<p>An experience can be fascinating and still become dangerous.</p>
+<p>Caution therefore does not mean banning all exploration of consciousness.</p>
+<p>It means knowing how to recognize when exploration begins to compromise physical health, mental health, autonomy, or social relationships.</p>
+
+<h2 id="so-what-can-we-actually-say"><span class="section-no">27</span>So, what can we actually say?</h2>
+<p>Perhaps less than some people claim.</p>
+<p>But certainly more than we once thought.</p>
+<p>We know that the brain can produce extraordinarily rich and convincing experiences.</p>
+<p>We know that certain practices can profoundly alter perception.</p>
+<p>We know that expectations, culture, context, and social interaction influence our experiences.</p>
+<p>We know that phenomena once attributed exclusively to the supernatural now have plausible or well-established natural explanations.</p>
+<p>But we also know that consciousness remains partly mysterious.</p>
+<p>We cannot completely explain every individual experience.</p>
+<p>We do not always know why one person has an experience while another does not.</p>
+<p>And some questions remain open.</p>
+<p>The reasonable conclusion is therefore neither:</p>
+<blockquote><strong>“Everything is true.”</strong></blockquote>
+<p>nor:</p>
+<blockquote><strong>“Everything is false.”</strong></blockquote>
+<p>It is closer to this:</p>
+<blockquote><strong>“Take experiences seriously, but not necessarily the explanations immediately attached to them. Look for what can be demonstrated. Acknowledge what we do not know. And accept that our minds may need to change when the facts require it.”</strong></blockquote>
+
+<h2 id="the-right-to-mystery"><span class="section-no">28</span>The right to mystery</h2>
+<p>There may be one final thing worth preserving in this discussion: <strong>the right to mystery.</strong></p>
+<p>We live in an age when we sometimes feel compelled to explain everything immediately.</p>
+<p>If something is strange, we must find a cause.</p>
+<p>If an experience is extraordinary, we must choose a side.</p>
+<p>If science has no answer, someone will fill the silence with a theory.</p>
+<p>But we also have the right to leave some questions open.</p>
+<p>Saying:</p>
+<blockquote>“I don't know.”</blockquote>
+<p>does not mean:</p>
+<blockquote>“I believe in ghosts.”</blockquote>
+<p>Nor does it mean:</p>
+<blockquote>“I reject science.”</blockquote>
+<p>It simply means:</p>
+<blockquote><strong>“I prefer an honest question to an answer I cannot justify.”</strong></blockquote>
+<p>Perhaps this is where belief and skepticism can finally meet.</p>
+<p>Not in a shared conclusion.</p>
+<p>But in a shared ability to recognize the limits of what we know.</p>
+<p>Because genuine open-mindedness may not mean believing that everything is possible.</p>
+<p>Nor does it mean believing that everything has already been explained.</p>
+<p>It means being able to look at something strange, fascinating, or deeply troubling and say, without contempt and without arrogance:</p>
+
+<div class="closing">
+<p><strong>“This is what we know. This is what we do not know. Let's keep looking.”</strong></p>
+</div>
+
+
+
+    <div class="callout">
+      <div class="label">The central idea</div>
+      <p>Take experiences seriously — but not necessarily the explanations immediately attached to them. Look for what can be demonstrated. Acknowledge what we do not know. And remain willing to change our minds when the evidence requires it.</p>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <p><strong>“This is what we know. This is what we do not know. Let's keep looking.”</strong></p>
+  <small>Between Belief and Skepticism · A balanced approach to extraordinary experiences</small>
+</footer>
+
+</body>
+</html>
