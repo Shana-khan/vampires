@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radu Dragonescu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background: #0a0808;
+            background-image: 
+                radial-gradient(ellipse at center, #1a1212 0%, #0a0808 70%);
+            color: #e8dcc8;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        .portrait-frame {
+            max-width: 500px;
+            width: 100%;
+            background: #140f0f;
+            border: 8px double #8b1a1a;
+            box-shadow: 
+                0 0 0 4px #2a1a1a,
+                0 0 0 12px #5c1010,
+                0 25px 60px rgba(0, 0, 0, 0.8),
+                inset 0 0 40px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ornements coins */
+        .portrait-frame::before,
+        .portrait-frame::after {
+            content: "❖";
+            position: absolute;
+            color: #8b1a1a;
+            font-size: 1.4rem;
+            z-index: 2;
+        }
+
+        .portrait-frame::before {
+            top: 12px;
+            left: 14px;
+        }
+
+        .portrait-frame::after {
+            top: 12px;
+            right: 14px;
+        }
+
+    .photo-wrapper {
+    position: relative;
+    border-bottom: 3px solid #5c1010;
+    background: #0d0a0a;          
+}
+
+.photo {
+    width: 100%;
+    height: auto;
+    max-height: 560px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    filter: sepia(25%) contrast(1.1) brightness(0.92);
+}
+
+.photo-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(10, 5, 5, 0.4) 100%);
+    pointer-events: none;
+}
+
+        .content {
+            padding: 36px 32px 42px;
+            text-align: center;
+            position: relative;
+        }
+
+        .content::before {
+            content: "✦ ✦ ✦";
+            display: block;
+            color: #8b1a1a;
+            font-size: 0.9rem;
+            letter-spacing: 8px;
+            margin-bottom: 18px;
+        }
+
+        .name {
+            font-family: 'Cinzel', serif;
+            font-size: 2.1rem;
+            font-weight: 600;
+            color: #f0e6d2;
+            letter-spacing: 3px;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .title {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: #a67c52;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .divider {
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #8b1a1a, transparent);
+            margin: 0 auto 24px;
+            position: relative;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "❧";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8b1a1a;
+            font-size: 1.1rem;
+        }
+
+        .divider::before {
+            left: -18px;
+        }
+
+        .divider::after {
+            right: -18px;
+        }
+
+        .bio {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: #d4c4a8;
+            font-style: italic;
+            margin-bottom: 32px;
+            max-width: 340px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        .socials a {
+            font-family: 'Cinzel', serif;
+            color: #a67c52;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .socials a:hover {
+            color: #e8dcc8;
+        }
+
+        .socials a::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #8b1a1a;
+            transition: width 0.3s ease;
+        }
+
+        .socials a:hover::after {
+            width: 100%;
+        }
+
+        .ornament-bottom {
+            margin-top: 28px;
+            color: #5c1010;
+            font-size: 1.1rem;
+            letter-spacing: 6px;
+        }
+
+        @media (max-width: 480px) {
+            .photo {
+                height: 400px;
+            }
+            .name {
+                font-size: 1.8rem;
+            }
+            .content {
+                padding: 28px 22px 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="portrait-frame">
+        <div class="photo-wrapper">
+            <!-- Remplace par ta photo -->
+            <img 
+                src="https://res.cloudinary.com/tmlvjyem/image/upload//v1785764057/dragonescu-radu_ibwaun.avif" 
+                alt="Radu Dragonescu Portrait" 
+                class="photo"
+            >
+        </div>
+
+        <div class="content">
+            <h1 class="name">Radu Dragonescu</h1>
+            
+            <div class="divider"></div>
+            
+            <p class="bio">
+            <p>He did not leave the world because he hated it.</p><br>
+
+<p>He left because he had learned that certain truths reveal themselves only to those who are willing to become unheard.</p><br>
+
+<p>For years, he has lived beyond the last known road, where the desert swallows a footprint before it has even become a memory. He has no company but the wind, the stones, and that vast and terrible silence which seems, with every passing night, to draw a little nearer.</p><br>
+
+<p>Men call this place a desert.</p><br>
+
+<p>He knows better.</p><br>
+
+<p>It is not empty.</p><br>
+
+<p>Beneath the shifting sands lie things for which no human tongue possesses a proper name. Ancient voices, buried beneath the dunes. Figures that appear at dusk and vanish the moment the eye turns toward them. And, on moonless nights, whispers rising from somewhere deep within the earth itself.</p><br>
+
+<p>He does not flee from them.</p><br>
+
+<p>He listens.</p><br>
+
+<p>For that is precisely why he came here: to learn what men have spent centuries burying beneath their prayers.</p><br>
+
+<p>They say demons dwell in darkness.</p><br>
+
+<p>They are mistaken.</p><br>
+
+<p>Darkness is merely where they wait.</p><br>
+
+<p>And so the hermit keeps watch.</p><br>
+
+<p>He watches when the sun dies beyond the dunes.<br>
+He watches when the cold descends upon the stones.<br>
+He watches when, somewhere beneath the sand, something speaks his name.</p><br>
+
+<p>He has come to understand that solitude is not the absence of others.</p><br>
+
+<p>It is the presence of everything others can no longer hear.</p><br>
+
+<p>And the longer he remains, the more he begins to suspect that the desert is not revealing its secrets to him.</p><br>
+
+<p>It is deciding whether he is worthy to bear them.</p><br>
+
+<p>For somewhere beyond the dunes, beyond the centuries, something still sleeps.</p><br>
+
+<p>And the hermit is beginning to understand a truth he might have been wiser never to seek:</p><br>
+
+<p>he did not come into the desert to find the demons.</p><br>
+
+<p>He came to discover why they had been waiting for him.
+            </p>
+
+            <div class="ornament-bottom">❖ ❖ ❖</div>
+        </div>
+    </div>
+	<!-- Default Statcounter code for Radu Dragonescu Portrait
+https://shana-khan.github.io/vampires/radu-dragonescu.html
+-->
+<script type="text/javascript">
+var sc_project=13341454; 
+var sc_invisible=1; 
+var sc_security="73ba4d0f"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - Statcounter" href="https://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/13341454/0/73ba4d0f/1/"
+alt="Web Analytics Made Easy - Statcounter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
