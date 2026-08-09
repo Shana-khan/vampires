@@ -59,27 +59,30 @@
             right: 14px;
         }
 
-        .photo-wrapper {
-            position: relative;
-            border-bottom: 3px solid #5c1010;
-        }
+    .photo-wrapper {
+    position: relative;
+    border-bottom: 3px solid #5c1010;
+    background: #0d0a0a;          /* fond sombre derrière l’image */
+}
 
-        .photo {
-            width: 100%;
-            height: 460px;
-            object-fit: cover;
-            display: block;
-            filter: sepia(25%) contrast(1.1) brightness(0.92);
-        }
+.photo {
+    width: 100%;
+    height: auto;
+    max-height: 560px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    filter: sepia(25%) contrast(1.1) brightness(0.92);
+}
 
-        /* Vignette sombre sur la photo */
-        .photo-wrapper::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at center, transparent 40%, rgba(10, 5, 5, 0.55) 100%);
-            pointer-events: none;
-        }
+/* Vignette (optionnelle, un peu plus douce) */
+.photo-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(10, 5, 5, 0.4) 100%);
+    pointer-events: none;
+}
 
         .content {
             padding: 36px 32px 42px;
@@ -222,7 +225,6 @@
 
         <div class="content">
             <h1 class="name">Radu Dragonescu</h1>
-            <p class="title">Dame de l’Ombre</p>
             
             <div class="divider"></div>
             
@@ -259,12 +261,6 @@ Les ombres se rapprochent.</p><br>
 
 <p>C’est ce qui fut qui, depuis toujours, revenait vers lui. »
             </p>
-
-            <div class="socials">
-                <a href="#">Correspondance</a>
-                <a href="#">Œuvres</a>
-                <a href="#">Contact</a>
-            </div>
 
             <div class="ornament-bottom">❖ ❖ ❖</div>
         </div>
