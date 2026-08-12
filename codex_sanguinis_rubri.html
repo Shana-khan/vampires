@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codex Sanguinis Rubri — The Book of the Three Red Veils</title>
+<style>
+  :root {
+    --bg: #0e0908;
+    --bg-panel: #16100e;
+    --ink: #e8ddd0;
+    --ink-dim: #a89a8a;
+    --red: #7a1f1f;
+    --red-bright: #b23a3a;
+    --copper: #9c7a4a;
+    --rule: #2c211c;
+    --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: radial-gradient(ellipse at 50% 0%, #1a1210 0%, var(--bg) 55%);
+    color: var(--ink);
+    font-family: var(--serif);
+    line-height: 1.7;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 28px 120px;
+  }
+
+  header.title-block {
+    text-align: center;
+    padding: 100px 20px 60px;
+    position: relative;
+  }
+
+  .seal {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 34px;
+    border: 1.5px solid var(--copper);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-size: 1.7rem;
+    letter-spacing: 0.05em;
+    color: var(--copper);
+    box-shadow: 0 0 0 1px rgba(156,122,74,0.15), 0 0 40px rgba(122,31,31,0.35);
+    background: radial-gradient(circle at 50% 40%, #1c1512, #0e0908 75%);
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    font-size: 0.68rem;
+    color: var(--ink-dim);
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-style: italic;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    margin: 0 0 14px;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+
+  .also-known {
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .also-known b { color: var(--red-bright); font-weight: 500; }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 56px 0 34px;
+    color: var(--copper);
+  }
+  .divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--rule), transparent);
+  }
+  .divider span {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  section { margin-bottom: 8px; }
+
+  h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.7rem;
+    color: var(--ink);
+    border-left: 2px solid var(--red);
+    padding-left: 16px;
+    margin: 52px 0 20px;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--red-bright);
+    margin: 34px 0 8px;
+  }
+
+  h3 .latin {
+    color: var(--ink);
+    font-style: normal;
+    font-weight: 500;
+    opacity: 0.85;
+  }
+
+  p { color: var(--ink); font-size: 1.02rem; margin: 0 0 16px; }
+  p.dim { color: var(--ink-dim); }
+
+  strong { color: var(--red-bright); font-weight: 600; }
+  em { color: var(--copper); font-style: italic; }
+
+  blockquote {
+    margin: 30px 0;
+    padding: 20px 26px;
+    border-left: 2px solid var(--copper);
+    background: var(--bg-panel);
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--ink);
+  }
+  blockquote .translation {
+    display: block;
+    margin-top: 8px;
+    font-family: var(--serif);
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--ink-dim);
+  }
+
+  .triad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 26px 0 30px;
+  }
+  .triad div {
+    border: 1px solid var(--rule);
+    padding: 18px 14px;
+    text-align: center;
+    background: var(--bg-panel);
+  }
+  .triad div b {
+    display: block;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--red-bright);
+    margin-bottom: 6px;
+  }
+  .triad div span { font-size: 0.88rem; color: var(--ink-dim); }
+
+  @media (max-width: 560px) {
+    .triad { grid-template-columns: 1fr; }
+  }
+
+  ol.veils { list-style: none; padding: 0; margin: 20px 0; counter-reset: veil; }
+  ol.veils li {
+    counter-increment: veil;
+    padding: 16px 0 16px 52px;
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+  }
+  ol.veils li::before {
+    content: counter(veil, upper-roman);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-family: var(--display);
+    font-style: italic;
+    color: var(--copper);
+    font-size: 1.1rem;
+    width: 36px;
+  }
+  ol.veils li b { display: block; color: var(--ink); font-weight: 600; margin-bottom: 4px; }
+  ol.veils li span { color: var(--ink-dim); font-size: 0.95rem; }
+
+  footer {
+    text-align: center;
+    margin-top: 90px;
+    padding-top: 30px;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-dim);
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+  .author-link {
+  color: #9c7a4a;
+  text-decoration: underline;
+  text-decoration-color: rgba(156,122,74,0.4);
+}
+.author-link:hover {
+  color: #b23a3a;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="title-block">
+    <div class="seal">777</div>
+    <div class="eyebrow">A Grimoire Sourced from Fragmentary Tradition</div>
+    <h1>Codex Sanguinis Rubri</h1>
+    <p class="also-known">Also known as the <b>Liber de Vampirismo Energetico</b>, the <b>Grimoire of the Three Red Veils</b>, or — in the most closed circles — simply <b>"The 777."</b></p>
+  </header>
+
+  <p>The <strong>Codex Sanguinis Rubri</strong> is said to be one of the rarest and most controversial contemporary grimoires in European occultist literature. Its existence has never been established beyond doubt: no publisher claims to have issued it, no library appears to hold a catalogued copy, and nearly every account of its origin traces back to private collectors, ceremonial occultists, or members of initiatory societies.</p>
+
+  <p>Since the mid-2010s, however, strikingly consistent descriptions have circulated. All describe a volume of unusual dimensions, a black binding, red endbands, a precise page count, and — above all — a structure built on the repetition of <em>three</em> and <em>seven</em>.</p>
+
+  <p>The title itself — "Codex of the Red Blood" — belongs to this same symbolic logic. Red here signifies less the material substance of blood than circulation, transmission, and the transformation of vital force. Three and seven form the numerical skeleton of the entire work.</p>
+
+  <div class="divider"><span>Material Description</span></div>
+
+  <p>Surviving copies are described as quarto format, roughly 20 × 30 cm, weighing nearly four kilograms. The binding is black calfskin, tanned by old methods, its grain irregular and matte enough to seem to absorb light rather than reflect it. Some copies are said to have taken on a faint grey cast over time, as though polished by the hands of many readers.</p>
+
+  <p>The front cover carries almost no ornament: a single oxidized copper circle inset into the leather, at whose centre the number <strong>777</strong> is engraved in archaizing Latin lettering of unknown origin. No title, no author's name, no religious or heraldic device appears anywhere on the cover — a bareness thought to be deliberate, keeping the symbol abstract rather than figurative.</p>
+
+  <p>The endbands are a dark, almost brown-tinged red; the endpapers are a dense marbled paper dominated by deep red veined with black, read by some as blood vessels, by others as star charts. The leaves themselves are said to be true goatskin parchment, ivory to old-gold in tone, unusually translucent and thick. The ink is brown-black shading to sepia, taking on purplish or reddish glints depending on the light — and a persistent, never-confirmed legend claims it contains traces of cinnabar or dried blood.</p>
+
+  <div class="divider"><span>The 777 Pages</span></div>
+
+  <p>The complete volume is said to run to exactly <strong>777 pages, numbered in Roman numerals</strong>, preceded by several unnumbered preliminary leaves. Three final pages are always left blank.</p>
+
+  <p>The number 777 is never explained directly, yet it governs the book's architecture: seven Veils, each subdivided into series of seven chapters and operations, laced with recurring triads. One later reading holds that seven represents <em>progression</em> and three represents <em>relation</em> — their combination forming the book's organizing principle.</p>
+
+  <p class="dim">As for the three blank pages, no single explanation prevails: a space for the initiate's own notes; the "three absent Veils" — knowledge the text cannot transmit and the reader must discover alone; or the three states of the practitioner — one who seeks, one who understands, one who acts. A later tradition names them the <em>Three Pages of the Return</em>, though the Codex itself never uses the phrase. The instruction attributed to the keepers of the surviving copies is unchanging: leave them blank, and never fill them before the seven Veils have been fully understood — for what would be written there is not meant to be read, but to be <em>read by something else</em>.</p>
+
+  <div class="divider"><span>Language and Style</span></div>
+
+  <p>The entire text is written in a deliberately hermetic, archaizing Latin — not any identifiable historical Latin, but an artificial idiom blending late-classical constructions, medieval turns of phrase, liturgical formulae, and neologisms found nowhere else.</p>
+
+  <p>The syntax is labyrinthine: single sentences run across several lines, nesting conditional clauses, double negatives, and symbolic or numerical references that are never explicitly defined. Certain passages carry several simultaneous layers of meaning — grammatical, numerical, symbolic, operative — and identical words shift meaning depending on their place within a given Veil, so that a term introduced casually in the first Veil may resurface, radically redefined, as a load-bearing concept in the seventh.</p>
+
+  <p>Illustrations are scarce; geometric figures, seals, and ritual structures are almost always <em>described in words rather than drawn</em>, forcing the reader to reconstruct them mentally — an exercise considered part of the initiation itself. A note attributed to an anonymous commentator sums up the difficulty: <em>"Latin supplies the words; numbers supply the order; the reader supplies the key."</em></p>
+
+  <div class="divider"><span>The Three Principles</span></div>
+
+  <p>Three notions recur often enough across the manuscript to be treated as foundational, though the Codex never presents them as formal doctrine:</p>
+
+  <div class="triad">
+    <div><b>The Source</b><span>Whence the force originates</span></div>
+    <div><b>The Hunger</b><span>The need that drives its pursuit</span></div>
+    <div><b>The Transfer</b><span>Its passage from one vessel to another</span></div>
+  </div>
+
+  <p class="dim">Their steady recurrence throughout the manuscript is what led amateur researchers to speak of a "red triad."</p>
+
+  <div class="divider"><span>The Seven Veils</span></div>
+
+  <p>The Codex is divided into seven books, called <strong>Veils</strong> (<em>Velamina</em>) — a deliberate choice of word, since a veil conceals as much as it reveals. Each part offers not a further lesson but a different way of looking at the same phenomenon.</p>
+
+  <ol class="veils">
+    <li><b><span class="latin">De Natura Vampirismi Energetici</span></b><span>The doctrine of the "subtle thirst" (<em>sitis subtilis</em>): vital, astral, emotional, and mental vampirism; a theory of "reservoirs" — places, groups, and collective emotions that naturally accumulate energy.</span></li>
+    <li><b><span class="latin">Invocationes Spirituum et Daemonum</span></b><span>Rites for invoking spirits, planetary intelligences, and "forms of desire"; entity names concealed behind permutations and monograms.</span></li>
+    <li><b><span class="latin">De Geniis Naturae</span></b><span>Nature spirits and genii loci, framed not as allies but as reservoirs of influence; place itself becomes a vessel.</span></li>
+    <li><b><span class="latin">De Potestatibus Paranormalibus</span></b><span>Clairvoyance, astral projection, remote influence — faculties always framed in terms of domination and energetic exchange, never wisdom.</span></li>
+    <li><b><span class="latin">De Creatione Mentali Entitatum</span></b><span>The deliberate creation of mental entities (<em>tulpae</em>, <em>servitores</em>) through intention and feeding; the unsettling principle that every creation demands nourishment, and an unfed entity will seek it elsewhere.</span></li>
+    <li><b><span class="latin">De Egregoribus et Formis Collectivis</span></b><span>A doctrine of egregores — collective psychic structures capable, at a certain threshold, of influencing their own creators; the Source–Hunger–Transfer loop at group scale.</span></li>
+    <li><b><span class="latin">Operationes Ultimae</span></b><span>The "ultimate operations," where the boundary between practitioner, entity, and source dissolves. The text breaks off without conclusion — its final act no longer one of controlling the flow, but of becoming part of the system.</span></li>
+  </ol>
+
+  <div class="divider"><span>Supposed Origins</span></div>
+
+  <p>Tradition holds that the Codex first surfaced in <strong>Romania in 2014</strong>, with references reaching <strong>France by 2015</strong>. Its writing is said to have begun in <strong>2007</strong> and concluded in <strong>2013</strong> — six years spent reconciling three distinct occult traditions.</p>
+
+  <p>Three authors are credited, though never named outright — only initials, monograms, and mottoes appear. A persistent hypothesis identifies them as <strong>Dorian Bibescu</strong>, Grand Master of the <a href="https://shana-khan.github.io/vampires/ordo-draconis-rubri.html" class="author-link">Order of the Red Dragon</a>; his wife <strong><a href="https://shana-khan.github.io/vampires/irina-bibescu.html" class="author-link">Irina Bibescu</a></strong>, a witch and Grand Priestess of the <strong><a href="https://shana-khan.github.io/vampires/brotherhood-black-water.html" class="author-link">Fraternity of Black Waters</a></strong>; and <strong><a href="https://shana-khan.github.io/vampires/radu-dragonescu.html" class="author-link">Radu Dragonescu</a></strong>, a French occultist. No independent evidence confirms this attribution — a gap that has only deepened the legend.</p>
+
+  <div class="divider"><span>The Twenty-One Copies</span></div>
+
+  <p>Tradition claims an original print run of just <strong>twenty-one copies</strong> — three times seven, read as a deliberate echo of the three authors and seven Veils, though the Codex never states the equation outright. Oral tradition divides them into three sets of seven: one for the authors and their circle, one for initiatory lodges, and one for recipients whose identities were never to be recorded.</p>
+
+  <p>Several copies are said to have been lost or deliberately destroyed; some collectors claim only a handful survive intact. No commercial edition has ever existed, and the "digital reproductions" occasionally found on occult forums are generally regarded as forgeries.</p>
+
+  <div class="divider"><span>The Meaning of 777</span></div>
+
+  <p>Beyond the page count, 777 structures the text itself. One marginal reading assigns the three sevens to path, passage, and attainment. Another maps them onto the seven Veils' own progression — recognize, summon, relate, perceive, create, collectivize, merge — a cycle in which the reader, beginning as an outside observer, ends unable to say where the world stops and their own mind begins. Perhaps this, rather than any specific power, is the true function of 777: a marker that the cycle has closed.</p>
+
+  <div class="divider"><span>The Legend</span></div>
+
+  <p>Three readings compete today: an elaborate modern forgery designed to ride contemporary fascination with energetic vampirism and ceremonial magic; a genuine but clandestine synthesis of several European esoteric traditions; or a real text whose public description has been deliberately corrupted by its few keepers to obscure its true authors.</p>
+
+  <p>One detail recurs across nearly every account: the Codex is never sold as a mere collector's item, but always accompanied by a warning.</p>
+
+  <blockquote>
+    "The book does not choose its reader. It recognizes the one already prepared to cross the threshold."
+  </blockquote>
+
+  <blockquote>
+    "Tres aperiunt. Septem revelant. Septem ter consummant."
+    <span class="translation">Three open. Seven reveal. Thrice seven fulfills.</span>
+  </blockquote>
+
+  <p class="dim">No one knows whether this line truly belongs to the Codex, or was invented after the fact to explain the fascination exerted by the numbers 3, 7, 21, and 777. In every account of the Codex, the symbol seems to arrive before the text — and the text, in turn, seems always to have been written to make the symbol feel inevitable.</p>
+
+  <p>As for the three final pages, the instruction attributed to the keepers of the rare surviving copies never wavers: <strong>leave them blank.</strong> For according to the darkest tradition attached to the Codex Sanguinis Rubri, filling them would not complete the book — it would begin something that was not there before.</p>
+
+  <footer>Tres aperiunt. Septem revelant. Septem ter consummant.</footer>
+
+</div>
+<!-- Default Statcounter code for 777
+https://shana-khan.github.io/vampires/codex_sanguinis_rubri.html
+-->
+<script type="text/javascript">
+var sc_project=13342349; 
+var sc_invisible=1; 
+var sc_security="a116d5a5"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13342349/0/a116d5a5/1/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
