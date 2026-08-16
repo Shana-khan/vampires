@@ -1,62 +1,525 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ordo Draconis Rubri: Chronicle of a Brotherhood at the Confines of Human Reason</title>
-    <style>
-        body {
-            font-family: Georgia, serif;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #f9f5f0;
-            color: #333;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2.2em;
-            margin-bottom: 40px;
-            color: #8b0000;
-        }
-        p {
-            text-align: justify;
-            margin-bottom: 1.5em;
-            font-size: 1.1em;
-        }
-        .italic {
-            font-style: italic;
-        }
-        strong {
-            color: #600000;
-        }
-        .highlight {
-            background-color: rgba(139, 0, 0, 0.1);
-            padding: 2px 6px;
-            border-left: 4px solid #8b0000;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The enigmatic history of the Ordo Draconis Rubri, a mysterious occult brotherhood rooted in the traditions of Eastern Europe.">
+  <title>The Ordo Draconis Rubri</title>
+
+  <style>
+    :root {
+      --background: #0d0b0b;
+      --surface: #171212;
+      --text: #d8d0ca;
+      --muted: #9f928b;
+      --accent: #8f1d1d;
+      --accent-light: #b83a3a;
+      --border: #342525;
+      --heading: #e6ddd6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, #251616 0, var(--background) 45%);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.8;
+    }
+
+    header {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background:
+        linear-gradient(rgba(13, 11, 11, 0.45), rgba(13, 11, 11, 0.95)),
+        radial-gradient(circle, #421b1b 0%, #0d0b0b 65%);
+    }
+
+    .hero {
+      max-width: 900px;
+    }
+
+    .eyebrow {
+      color: var(--accent-light);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      font-size: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--heading);
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      line-height: 1;
+      font-weight: normal;
+      letter-spacing: 0.04em;
+    }
+
+    .subtitle {
+      max-width: 700px;
+      margin: 2rem auto 0;
+      color: var(--muted);
+      font-size: 1.15rem;
+      font-style: italic;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(13, 11, 11, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav ul {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      color: var(--accent-light);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+    }
+
+    section {
+      margin-bottom: 5rem;
+    }
+
+    h2 {
+      color: var(--heading);
+      font-size: 2rem;
+      font-weight: normal;
+      margin: 0 0 1.5rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2::first-letter {
+      color: var(--accent-light);
+    }
+
+    p {
+      margin: 0 0 1.4rem;
+    }
+
+    em {
+      color: #c8a9a0;
+    }
+
+    strong {
+      color: #e5cbc2;
+      font-weight: normal;
+    }
+
+    .quote {
+      margin: 2.5rem 0;
+      padding: 1.5rem 2rem;
+      border-left: 3px solid var(--accent);
+      background: var(--surface);
+      color: #c7bbb4;
+      font-style: italic;
+    }
+
+    .warning {
+      margin-top: 3rem;
+      padding: 1.8rem 2rem;
+      background: #1b1111;
+      border: 1px solid #482020;
+    }
+
+    .warning h3 {
+      margin-top: 0;
+      color: var(--accent-light);
+      font-weight: normal;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      padding: 3rem 1.5rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: #756a65;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        gap: 0.8rem;
+      }
+
+      main {
+        padding-top: 3rem;
+      }
+
+      .quote,
+      .warning {
+        padding: 1.2rem;
+      }
+    }
+	a.external-link {
+  color: var(--accent-light);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+a.external-link:hover {
+  color: #e06a6a;
+}
+  </style>
 </head>
+
 <body>
 
-<h1>Ordo Draconis Rubri<br>Chronicle of a Brotherhood at the Confines of Human Reason</h1>
+  <header id="top">
+    <div class="hero">
+      <div class="eyebrow">A Transylvanian Occult Chronicle</div>
+      <h1>The Ordo Draconis Rubri</h1>
+      <p class="subtitle">
+        An enigmatic brotherhood, its vanished archives, and the strange
+        psychological power of ritual.
+      </p>
+    </div>
+  </header>
 
-<p>In the misty depths of Transylvania, where echoes of ancient esoteric traditions mingle with the shadows of old Gothic churches, emerges the enigmatic history of the <strong><a href="pdfs/the-last-dragons.pdf" target="_blank" rel="noopener noreferrer">Ordo Draconis Rubri</a></strong>, a brotherhood whose roots delve into the occult traditions of Eastern Europe, particularly Romania. Founded upon the remnants of a medieval chivalric heritage, this order has traversed the centuries, persecuted under the yoke of the communist regime which decimated its members and scattered its archives, leaving behind only scattered fragments of manuscripts, internal correspondences, and ritual documents, some still bearing the original signature of central figures such as Dorian Bibescu, <a href="irina-bibescu.html" target="_blank" rel="noopener noreferrer">Irina Bibescu</a> and Radu Dragonescu. These relics, recently rediscovered, reveal an organization dedicated to the manipulation of subtle energies, named the <em class="highlight"><a href="scarlet-breath.html" target="_blank" rel="noopener noreferrer">scarlet breath of the dragon</em></a>, a practice that, though codified with an almost scientific ritual precision, harbors profound perils for vulnerable minds, prone to tipping into madness, persistent hallucinations and collective hysteria, while fostering an overwhelming affective and psychological dependence, insidious paranoia, and even suicidal thoughts born from the introspective abyss it opens.</p>
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="#origins">Origins</a></li>
+      <li><a href="#radu">Radu Dragonescu</a></li>
+      <li><a href="#temple">The Temple</a></li>
+      <li><a href="#rituals">The Rituals</a></li>
+      <li><a href="#psychology">Psychology</a></li>
+      <li><a href="#legacy">Legacy</a></li>
+    </ul>
+  </nav>
 
-<p>The history of the Order intertwines intimately with that of Radu Dragonescu, an elusive figure born around 1962, whose initiation between 2000 and 2010 marked a decisive turning point. Introduced into the brotherhood by Irina Stanescu-Bibescu, a specialist in Transylvanian esoteric traditions, and her husband Dorian Bibescu, Grand Master of the Order, Radu was designated in 2005 as the spiritual heir, adopting an evocative name that fuses draconic heritage with an aura of metaphorical vampiric mystery. The internal manuscripts, written on ancient parchments with deep red ink composed of the adepts' blood mixed with natural pigments and metallic compounds, attest to this spiritual adoption, reinforcing a bond of blood fraternity that transcends symbolism to anchor participants in a visceral cohesion. Yet this total immersion, where each ritual demands absolute surrender to the collective energy, exposes fragile souls to profound psychological dependence, where withdrawal from the group or the charismatic leader like Radu can precipitate an existential void leading to paranoia or suicidal impulses, the adepts feeling deprived of their own vitality.</p>
+  <main>
 
-<p>The temple of the Order, arranged within an old Gothic church, embodies the architectural and symbolic essence of these practices. The central nave, flanked by side aisles dedicated to study and archives, leads to an elevated choir where stands the green marble altar, adorned with a human skull modified by the integration of wolf canines—symbol of instinctive strength and eternal vigilance—, a silver chalice for ritual offerings, and an athamé, ceremonial dagger. Behind the altar, a winged dragon in red copper dominates the scene, serving as the focal point for meditations, while red, black, and white candles, arranged according to a precise schema, cast plays of shadows and lights designed to induce altered states of consciousness. On the floor, a circle engraved with solar and lunar motifs guides participants in collective meditations, favoring the circulation of a vital energy that synchronizes heartbeats and breaths, provoking intense shivers, sensations of burning cold, or the perception of an invisible force traversing the room. This configuration, drawing upon sacred geometry and natural light, creates an immersive environment where ritual psychology and bodily discipline interact to amplify psychophysiological phenomena, but it harbors a latent danger: for fragile minds, these deep trances can degenerate into persistent hallucinations, where synchronized visions—moving forms, scarlet colors, and spectral presences—intermingle with reality, fomenting collective hysteria that erodes the distinction between self and group, and which, in extreme cases, nourishes delusional madness where the individual loses himself in a whirlwind of shared illusions.</p>
+    <section id="origins">
+      <h2>Origins in the Transylvanian Mist</h2>
 
-<p>The rituals, often designated as “red masses,” consist of a methodical codification of the scarlet breath of the dragon, a subtle energy circulating through veins and chakras, inducing physiological variations such as accelerated heart rates or sensations of invisible presence. Anonymous testimonies from former members, collected between 2010 and 2020, depict Radu as a silent and almost invisible master, capable of influencing ambient energy without apparent gestures, an exceptional mastery which, according to an <a href="Between_Belief_and_Skepticism_Magazine.html" target="_blank" rel="noopener noreferrer">independent archivist</a>, can be scientifically interpreted as effects induced by meditation and collective suggestion. Participants recount how, during these ceremonies, a collective shiver coursed through their bodies, the energy traversing them simultaneously, amplified by focus on the dragon and candles, leading to synchronized hallucinations where all perceived the same forms and colors. These phenomena, comparable to those observed in shamanic rituals or advanced meditations worldwide, as affirmed by Professor Elena Popescu, anthropologist of religions, demonstrate ritual coherence without recourse to the supernatural, but they also highlight the risks for the vulnerable: powerful suggestion and collective concentration can transform these experiences into contagious hysteria, where hallucinations become delusional convictions, instilling deep paranoia toward the outside world perceived as hostile, and where affective dependence on the group or Radu—seen as a divine channel—can lead to suicidal thoughts when isolation or doubt sets in, the adept feeling abandoned by this vital energy he has learned to idolize.</p>
+      <p>
+        Deep in the mists of Transylvania, where echoes of an esoteric past
+        mingle with the silhouettes of ancient Gothic churches, lies the
+        enigmatic story of the <strong><a href="pdfs/the-last-dragons.pdf" class="external-link" target="_blank" rel="noopener noreferrer">Ordo Draconis Rubri</a></strong> — a
+        brotherhood said to have emerged from occult traditions associated
+        with Eastern Europe, particularly Romania.
+      </p>
 
-<p>Scientific analyses of the artifacts have revealed the presence of regular microcracks on the parchments, indicating frequent and prolonged handling over time. These signs of wear, characteristic of objects used in everyday human contexts, confirm that the parchments were primarily physical media intended for the transmission and performance of rituals. They also reinforce the hypothesis that the phenomena reported during ceremonies are not necessarily the result of supernatural interventions, but can be explained by psychophysiological mechanisms that are now well documented, such as collective suggestion, behavioral synchronization, altered states of consciousness, or the influence of the ritual context on participants’ perceptions.
+      <p>
+        According to fragments of its surviving archives, the Order was
+        supposedly built upon the remnants of an old chivalric tradition
+        before passing through the centuries in secrecy. The communist era
+        is believed to have accelerated its disappearance: members were
+        scattered, documents destroyed or confiscated, and its archives
+        reduced to a handful of manuscripts, letters, and ritual texts.
+      </p>
 
-Yet this rationalization does not diminish the inherent dangers: for fragile minds, the repetition of these practices can erode mental health, transforming the quest for energetic mastery into a spiral of madness, where collective trances turn into uncontrollable hysterical episodes, and where the perception of an invisible force nourishes persistent paranoia, convincing the individual of being pursued by intangible entities. Moreover, the blood fraternity, symbolized by the ink and rituals, forges a psychological dependence binding adepts in an emotional web, rendering any departure synonymous with betrayal and potentially triggering suicidal thoughts, as if life without the scarlet breath lost all essence.</p>
+      <p>
+        Among these surviving documents appears the signature of
+        <strong>Radu Dragonescu</strong>, a central figure in the Order's
+        modern tradition. The manuscripts describe a practice known as the
+        <em><a href="scarlet-breath.html" class="external-link" target="_blank" rel="noopener noreferrer">Scarlet Breath of the Dragon</a></em>, presented as a method for
+        channeling a subtle form of energy through breathing, concentration,
+        and ritual performance.
+      </p>
 
-<p>Today, Radu Dragonescu, aged around 63, remains a living enigma, his whereabouts unknown—perhaps in France, or in voluntary isolation in the Rajasthan desert—, reinforcing the myth surrounding the Order of which he is the last spiritual heir. The mysterious disappearance of Irina and Dorian Bibescu after 2015, coupled with the progressive erasure of members, fuels speculations and inquiries in esoteric circles, where Radu is perceived sometimes as a master of energetic meditation, sometimes as a metaphorical <a href="vampirism.html" target="_blank" rel="noopener noreferrer">vampire</a> embodying the frontier between myth and reality. This voluntary isolation illustrates how an individual can influence a spiritual heritage without physical presence, but it highlights the perils for those who, drawn by this aura, engage in similar practices: the quest for the scarlet breath, though fascinating, can precipitate sensitive souls into an abyss of madness, where hallucinations and collective hysteria become invisible chains, affective dependence a deadly trap, paranoia an omnipresent shadow, and suicidal thoughts an incessant whisper born from the illusion of a vital energy that, once lost, renders existence unbearable.</p>
+      <p>
+        Whether these practices were genuinely understood as supernatural
+        techniques or functioned primarily as symbolic forms of meditation
+        and collective suggestion remains uncertain. Their symbolic
+        intensity, however, appears to have been central to the experience
+        of those who took part in them.
+      </p>
+    </section>
 
-<p>In sum, the <strong>Ordo Draconis Rubri</strong>, through its codified rituals and immersive symbolism, offers a troubling mirror to the limits of human perception, where the manipulation of collective energy fuses psychophysiological science and ancestral esotericism. Yet beyond its fascination, it embodies a solemn warning: for fragile minds, this path is not an elevation, but a precipice toward mental disintegration, where the scarlet dragon, far from protecting, devours the soul in an inextinguishable inner fire.</p>
+    <section id="radu">
+      <h2>Radu Dragonescu</h2>
+
+      <p>
+        The recent history of the Order is closely intertwined with
+        <strong>Radu Dragonescu</strong>. His initiation, believed to have taken place sometime between
+        2000 and 2010, supposedly marked a new chapter in the brotherhood's
+        history.
+      </p>
+
+      <p>
+        He was allegedly introduced to its leaders by
+        <strong>Irina Stanescu-Bibescu</strong>, a specialist in
+        Transylvanian esoteric traditions, and her husband,
+        <strong>Dorian Bibescu</strong>, who was then described as the
+        Order's grand master.
+      </p>
+
+      <p>
+        In 2005, Radu was reportedly designated as the spiritual heir.
+        His initiatory name, evoking both the dragon and the imagery of the
+        vampire, would eventually contribute to the mysterious persona
+        surrounding him.
+      </p>
+
+      <p>
+        The Order's manuscripts also describe a symbolic brotherhood based
+        upon blood. Several parchment fragments bear traces of a dark red
+        ink supposedly made from natural pigments and metallic compounds,
+        while the Order's own tradition attributes a ritual origin to it.
+      </p>
+
+      <p>
+        It is difficult to determine how much of these accounts reflects
+        actual practice and how much belongs to the mythology constructed
+        around the brotherhood. In either case, blood appears to occupy an
+        important place in its symbolism, representing belonging,
+        transmission, and loyalty.
+      </p>
+    </section>
+
+    <section id="temple">
+      <h2>The Temple</h2>
+
+      <p>
+        The Order's temple was allegedly established inside an old Gothic
+        church. The central nave, flanked by rooms devoted to study and
+        archives, supposedly leads toward a raised choir dominated by a
+        green marble altar.
+      </p>
+
+      <p>
+        The altar is said to have been decorated with a human skull altered
+        by the addition of wolf fangs, a silver chalice, and an athame —
+        a ceremonial dagger. Behind it, a winged dragon cast in red copper
+        served as the focal point for meditation.
+      </p>
+
+      <p>
+        Red, black, and white candles were arranged according to a precise
+        geometric pattern, while a circle engraved with solar and lunar
+        motifs marked the floor.
+      </p>
+
+      <p>
+        The setting appears to have served a psychological as well as a
+        symbolic purpose. Darkness, flickering light, repetitive movements,
+        controlled breathing, and prolonged collective concentration can
+        create an unusually immersive subjective experience.
+      </p>
+
+      <p>
+        Participants may consequently experience sensations such as
+        shivering, sudden warmth or cold, an accelerated heartbeat, or a
+        powerful sense of an unseen presence. Within the Order's symbolic
+        framework, such sensations were attributed to the
+        <em>Scarlet Breath of the Dragon</em>. From a psychophysiological
+        perspective, however, they can be understood as the combined effects
+        of breathing patterns, attention, expectation, suggestion, and group
+        dynamics.
+      </p>
+    </section>
+
+    <section id="rituals">
+      <h2>The Red Masses</h2>
+
+      <p>
+        The so-called <strong>Red Masses</strong> represented the most
+        elaborate expression of this discipline. Participants reportedly
+        followed a sequence of breathing and meditative exercises intended
+        to encourage synchronization within the group.
+      </p>
+
+      <p>
+        Former members are said to have described shared physical sensations
+        occurring during the ceremonies, sometimes accompanied by unusually
+        vivid mental imagery. According to some accounts, several
+        participants even felt that they were simultaneously perceiving the
+        same shapes or colors.
+      </p>
+
+      <div class="quote">
+        “The ritual did not need to invoke anything supernatural to feel
+        extraordinary. The atmosphere itself became part of the experience.”
+      </div>
+
+      <p>
+        Experiences of this kind do not necessarily require a supernatural
+        explanation. Collective concentration, expectation, suggestion, and
+        a carefully controlled sensory environment can produce remarkably
+        similar subjective experiences among participants.
+      </p>
+
+      <p>
+        The anthropologist <strong>Elena Popescu</strong>, cited in the
+        surviving accounts, reportedly compared these phenomena with
+        experiences documented in various meditative and ritual traditions
+        around the world. Such an interpretation makes it possible to
+        understand the coherence of the ceremonies without accepting their
+        occult explanations as literal fact.
+      </p>
+    </section>
+
+    <section id="psychology">
+      <h2>The Psychological Dimension</h2>
+
+      <p>
+        A psychological interpretation does not, however, eliminate the
+        question of risk. Intensive practices built around suggestion,
+        social isolation, and adherence to a single interpretation of one's
+        experiences can become problematic for particularly vulnerable
+        individuals.
+      </p>
+
+      <p>
+        The difficulty arises when sensations or visions experienced during
+        rituals gradually come to be regarded as objective and unquestionable
+        realities. Under such circumstances, the boundary between inner
+        experience and the outside world may become blurred.
+      </p>
+
+      <p>
+        For someone already psychologically vulnerable, this environment
+        could contribute to severe anxiety, heightened suspiciousness, or,
+        in extreme circumstances, significant psychological disorganization.
+        The concern therefore lies less in the ritual itself than in the
+        combination of intense belief, social pressure, isolation, and
+        dependence upon a group or charismatic leader.
+      </p>
+
+      <div class="warning">
+        <h3>A Note on Vulnerability</h3>
+
+        <p>
+          The psychological risks described here should not be understood as
+          an inevitable consequence of meditation, ritual, spirituality, or
+          occult symbolism. Individual responses vary considerably.
+          Problems are more likely to arise when intense practices are
+          combined with isolation, coercion, sleep deprivation, extreme
+          suggestibility, or the rejection of outside perspectives and
+          support. <em><a href="Between_Belief_and_Skepticism_Magazine.html" class="external-link" target="_blank" rel="noopener noreferrer">More information</a></em>...
+        </p>
+      </div></br>
+
+      <p>
+        The community aspect is particularly important. When personal identity becomes increasingly tied to that of a group or a charismatic leader, leaving can be experienced as a profound loss. A sense of belonging that initially provides support can gradually turn into emotional dependence.
+      </p>
+
+      <p>
+        <a href="pdfs/le-souffle-sous-les-voutes.pdf" class="external-link" target="_blank" rel="noopener noreferrer">Testimonies</a> from families also highlight the difficulty of helping someone leave this type of environment. Breaking away does not necessarily consist of a simple individual decision to leave the group: it may involve detaching from relationships, points of reference, and an environment with which the person has gradually come to associate a significant part of their identity and sense of balance. This situation can make the process of leaving particularly long and complex, especially when ties to the group remain strong.
+      </p>
+	  
+	  <p>
+	  In such circumstances, an abrupt break with the group can cause profound distress, particularly for someone who views the community as the primary source of meaning in their life. External relationships and independent sources of support can then play an important protective role by offering alternative points of reference and gradually guiding the person in rebuilding their autonomy.
+	  </p>
+	  
+    </section>
+
+    <section id="legacy">
+      <h2>A Vanishing Legacy</h2>
+
+      <p>
+        Analyses attributed to researchers who examined the Order's artifacts
+        reportedly identified traces consistent with repeated and methodical
+        use of the manuscripts. They provide no evidence, however, for the
+        existence of supernatural phenomena.
+      </p>
+
+      <p>
+        Instead, they support the possibility of a highly developed ritual
+        system in which ordinary psychological and physiological mechanisms
+        were interpreted through an esoteric vocabulary.
+      </p>
+
+      <p>
+        Today, Radu Dragonescu, now approximately sixty-three years old,
+        remains an elusive figure. His whereabouts are unknown. Some rumors
+        place him in France; others claim that he withdrew voluntarily to
+        the Rajasthan desert.
+      </p>
+
+      <p>
+        The disappearance of Irina and Dorian Bibescu after 2015, together
+        with the gradual disappearance of other members, has only deepened
+        speculation surrounding the Order.
+      </p>
+
+      <p>
+        Within esoteric circles, Radu is variously portrayed as an energy
+        meditation master or as a metaphorical vampire — a figure deliberately
+        positioned on the uncertain boundary between myth and reality.
+      </p>
+
+      <p>
+        Ultimately, the <strong>Ordo Draconis Rubri</strong> can be read less
+        as evidence of supernatural power than as a fascinating example of
+        a spiritual construction in which architecture, symbolism, physical
+        discipline, and group dynamics reinforce one another.
+      </p>
+
+      <p>
+        The <em>Scarlet Breath of the Dragon</em> becomes, in this reading,
+        a metaphor for the search for an invisible force capable of linking
+        the individual to the collective and transforming inner experience.
+      </p>
+
+      <p>
+        Yet that symbolic power is precisely what makes the story unsettling.
+        When the pursuit of a spiritual experience is accompanied by the
+        gradual abandonment of critical judgment, social isolation, or
+        dependence upon a group and its leader, the search for transcendence
+        can become a source of suffering rather than liberation.
+      </p>
+
+      <p>
+        In that sense, the Scarlet Dragon need not be a supernatural monster
+        at all. It can represent something more familiar: the danger of
+        allowing a belief to become so consuming that it ultimately devours
+        the person who has surrendered themselves to it.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+  <p>
+    The Ordo Draconis Rubri &mdash; An Occult Chronicle of Transylvania &mdash; March 16, 2025
+  </p>
+  
+</footer>
+
 <!-- Default Statcounter code for Ordo Draconis Rubri
 https://shana-khan.github.io/vampires/ordo-draconis-rubri.html -->
 <script type="text/javascript">
@@ -76,3 +539,4 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
 </body>
 </html>
+```
