@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Irina Bibescu — Keeper of the Red Breath</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Uncial+Antiqua&display=swap');
+
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap');
         
         body {
             margin: 0;
@@ -20,9 +21,11 @@
                 linear-gradient(45deg, transparent 75%, rgba(200, 150, 100, 0.05) 75%),
                 linear-gradient(-45deg, transparent 75%, rgba(200, 150, 100, 0.05) 75%);
             background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px, 20px 20px, 20px 20px;
-            font-family: 'Uncial Antiqua', cursive;
+            
+            /* Nouvelle fonte : plus lisible tout en gardant l'aspect ancien */
+            font-family: 'IM Fell English', serif;
             color: #4a2c0a;
-            line-height: 1.7;
+            line-height: 1.75;
             overflow-x: hidden;
         }
         
@@ -67,6 +70,7 @@
             border-radius: 20px;
         }
         
+        /* Titres : Cinzel conserve le côté élégant et solennel */
         h1 {
             font-family: 'Cinzel', serif;
             font-size: 2.8em;
@@ -105,8 +109,10 @@
             margin: 35px 0 15px;
         }
         
+        /* Texte courant : IM Fell English */
         p, ul, blockquote {
-            font-size: 1.15em;
+            font-family: 'IM Fell English', serif;
+            font-size: 1.2em;
             margin-bottom: 22px;
             text-shadow: 0.5px 0.5px 1px rgba(255,255,255,0.6);
         }
@@ -154,9 +160,27 @@
                 padding: 30px 25px;
                 border-radius: 15px;
             }
-            h1 { font-size: 2.2em; margin-bottom: 35px; }
-            h2 { font-size: 1.8em; margin: 50px 0 25px; }
-            blockquote { margin: 30px 20px; padding: 20px; font-size: 1.15em; }
+            
+            h1 { 
+                font-size: 2.2em; 
+                margin-bottom: 35px; 
+            }
+            
+            h2 { 
+                font-size: 1.8em; 
+                margin: 50px 0 25px; 
+            }
+            
+            /* Texte légèrement plus petit sur mobile */
+            p, ul {
+                font-size: 1.15em;
+            }
+            
+            blockquote { 
+                margin: 30px 20px; 
+                padding: 20px; 
+                font-size: 1.15em; 
+            }
         }
         
         @keyframes fadeIn {
@@ -164,7 +188,9 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .parchment { animation: fadeIn 1.2s ease-out; }
+        .parchment { 
+            animation: fadeIn 1.2s ease-out; 
+        }
 
         a {
             color: #8b0000 !important;
@@ -177,6 +203,8 @@
             text-shadow: 0 0 3px rgba(178, 34, 34, 0.4);
         }
     </style>
+```
+
 </head>
 <body>
     <div class="parchment">
